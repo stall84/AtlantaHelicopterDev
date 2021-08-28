@@ -3,7 +3,6 @@ import React from 'react';
 import Layout from 'components/Layout';
 import SEO from 'components/SEO';
 import ConctactInfo from 'components/ContactInfo';
-// import TourInfo from 'components/TourInfo';
 
 import { useEffect, useState } from 'react';
 import TourInfo from 'components/TourInfo';
@@ -19,7 +18,9 @@ const ToursPage: React.FC = () => {
     const [toursList, setToursList] = useState([]);
     const [errorMsg, setErrorMsg] = useState('');
 
-
+    // There was no elegant solution to 'graphing' the Xola sellers API over to graphql. 
+    // Therefore here we're just fetching all of the tours at page load, 
+    // then storing them in state, passing them into the tour cards via TourInfo component
     useEffect(() => {
         const fetchTours = async () => {
             try {
