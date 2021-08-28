@@ -15,16 +15,16 @@ module.exports = {
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: [`UA-204964303-1`]
-      }
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-gtag`,
+    //   options: {
+    //     trackingIds: [`UA-204964303-1`]
+    //   }
+    // },
     {
       resolve: `gatsby-source-sanity`,
       options: {
-        projectId: `mh68us9m`,
+        projectId: `ua522t17`,
         dataset: `production`
       }
     },
