@@ -16,10 +16,14 @@ const mainNavItems: MainNavItem[] = [
     title: 'Charters & Tours',
     slug: '/tours/'
   },
-  // {
-  //   title: 'Blog',
-  //   slug: '/blog/'
-  // },
+  {
+    title: 'Blog',
+    slug: '/blog/'
+  },
+  {
+    title: 'Flight Instruction',
+    slug: '/instruction/'
+  },
   {
     title: 'Contact Us',
     slug: '/contact/'
