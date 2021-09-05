@@ -9,51 +9,92 @@ import TitleSection from 'components/ui/TitleSection';
 import FormatHtml from 'components/utils/FormatHtml';
 
 import * as Styled from './styles';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface Post {
-    html: React.ReactNode;
-    fields: {
-        slug: string;
-    };
-    frontmatter: {
+    title: string;
+    publishedAt: string;
+    categories: {
+        _id: string;
         title: string;
-        date: string;
-    };
+    }
+    mainImage: {
+        asset: {
+            gatsbyImageData: IGatsbyImageData
+        }
+    }
+    slug: {
+        current: string;
+    }
+    _rawExcerpt: React.ReactNode
+    _rawBody: React.ReactNode;
+    // authors: {
+    //     _key: string;
+    //     author: {
+    //         asset: {
+    //             image: IGatsbyImageData
+    //         }
+    //     }
+    // }
 }
 
 interface Props {
     data: {
-        markdownRemark: Post;
-    };
+        sanityPost: Post;
+    }
     pageContext: {
-        slug: string;
+        id: string;
+        fullSlug: string;
         next: Post;
         previous: Post;
-    };
+    }
 }
 
-const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
-    const post = data.markdownRemark;
-    const { previous, next } = pageContext;
+// interface Post {
+//     html: React.ReactNode;
+//     fields: {
+//         slug: string;
+//     };
+//     frontmatter: {
+//         title: string;
+//         date: string;
+//     };
+// }
+
+// interface Props {
+//     data: {
+//         markdownRemark: Post;
+//     };
+//     pageContext: {
+//         slug: string;
+//         next: Post;
+//         previous: Post;
+//     };
+// }
+
+const BlogPostTemplate: React.FC<Props> = ({ data, pageContext }) => {
+    // const post = data.markdownRemark;
+    const post = data.sanityPost;
+    const { previous, next, fullSlug } = pageContext;
 
     return (
         <Layout>
-            <SEO title={post.frontmatter.title} />
+            <SEO title={post.title} />
             <Container section>
-                <TitleSection title={post.frontmatter.date} subtitle={post.frontmatter.title} />
-                <FormatHtml content={post.html} />
+                <TitleSection title={post.publishedAt} subtitle={post.title} />
+                {/* <FormatHtml content={post.html} /> */}
                 <Styled.Links>
                     <span>
                         {previous && (
-                            <Link to={previous.fields.slug} rel="previous">
-                                ← {previous.frontmatter.title}
+                            <Link to={previous.slug.current} rel="previous">
+                                ← {previous.title}
                             </Link>
                         )}
                     </span>
                     <span>
                         {next && (
-                            <Link to={next.fields.slug} rel="next">
-                                {next.frontmatter.title} →
+                            <Link to={next.slug.current} rel="next">
+                                {next.title} →
                             </Link>
                         )}
                     </span>
@@ -63,17 +104,49 @@ const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
     );
 };
 
-export default BlogPost;
-
+export default BlogPostTemplate;
 
 export const query = graphql`
-  query BlogPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        date(formatString: "MMM DD, YYYY")
-      }
+    query BlogPostTemplateQuery($id: String!) {
+        post: sanityPost(id: { eq: $id }) {
+            id
+            publishedAt
+            categories {
+                _id 
+                title
+            }
+            mainImage {
+                alt
+                asset {
+                    gatsbyImageData
+                }
+            }
+            title
+            slug {
+                current
+            }
+            _rawExcerpt(resolveReferences: { maxDepth: 5 })
+            _rawBody(resolveReferences: { maxDepth: 5 })
+            # authors {
+            #     image {
+            #         asset {
+            #             _id
+            #             gatsbyImageData
+            #         }
+            #         name
+            #     }
+            # }
+        }
     }
-  }
 `;
+// export const query = graphql`
+//   query BlogPostBySlug($slug: String!) {
+//     markdownRemark(fields: { slug: { eq: $slug } }) {
+//       html
+//       frontmatter {
+//         title
+//         date(formatString: "MMM DD, YYYY")
+//       }
+//     }
+//   }
+// `;
