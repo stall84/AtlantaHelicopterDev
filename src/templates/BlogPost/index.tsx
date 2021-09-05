@@ -7,7 +7,7 @@ import SEO from 'components/SEO';
 import Container from 'components/ui/Container';
 import TitleSection from 'components/ui/TitleSection';
 import FormatHtml from 'components/utils/FormatHtml';
-
+import BlogPost from 'components/BlogPost';
 import * as Styled from './styles';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 
@@ -40,7 +40,7 @@ interface Post {
 
 interface Props {
     data: {
-        sanityPost: Post;
+        post: Post;
     }
     pageContext: {
         id: string;
@@ -74,7 +74,8 @@ interface Props {
 
 const BlogPostTemplate: React.FC<Props> = ({ data, pageContext }) => {
     // const post = data.markdownRemark;
-    const post = data.sanityPost;
+    const post = data && data.post
+    console.log('post: ', post)
     const { previous, next, fullSlug } = pageContext;
 
     return (
@@ -83,6 +84,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext }) => {
             <Container section>
                 <TitleSection title={post.publishedAt} subtitle={post.title} />
                 {/* <FormatHtml content={post.html} /> */}
+                <BlogPost {...post} />
                 <Styled.Links>
                     <span>
                         {previous && (
