@@ -10,6 +10,7 @@ import FormatHtml from 'components/utils/FormatHtml';
 import BlogPost from 'components/BlogPost';
 import * as Styled from './styles';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
+import { format } from 'date-fns';
 
 interface Post {
     title: string;
@@ -75,33 +76,34 @@ interface Props {
 const BlogPostTemplate: React.FC<Props> = ({ data, pageContext }) => {
     // const post = data.markdownRemark;
     const post = data && data.post
-    console.log('post: ', post)
     const { previous, next, fullSlug } = pageContext;
 
     return (
         <Layout>
             <SEO title={post.title} />
-            <Container section>
-                <TitleSection title={post.publishedAt} subtitle={post.title} />
-                {/* <FormatHtml content={post.html} /> */}
-                <BlogPost {...post} />
-                <Styled.Links>
-                    <span>
-                        {previous && (
-                            <Link to={previous.slug.current} rel="previous">
-                                ← {previous.title}
-                            </Link>
-                        )}
-                    </span>
-                    <span>
-                        {next && (
-                            <Link to={next.slug.current} rel="next">
-                                {next.title} →
-                            </Link>
-                        )}
-                    </span>
-                </Styled.Links>
-            </Container>
+            {/* <Container section> */}
+            <TitleSection title={format(new Date(post.publishedAt), 'yyyy-MM')} subtitle={post.title} />
+            {/* <FormatHtml content={post.html} /> */}
+            <BlogPost {...post} />
+            <h1>{previous.slug.current}</h1>
+            <h1>{next.slug.current}</h1>
+            <Styled.Links>
+                <span>
+                    {previous && (
+                        <Link to={`/blog/${previous.slug.current}`} rel="previous" >
+                            ← {previous.title}
+                        </Link>
+                    )}
+                </span>
+                <span>
+                    {next && (
+                        <Link to={`/blog/${next.slug.current}`} rel="next" >
+                            {next.title} →
+                        </Link>
+                    )}
+                </span>
+            </Styled.Links>
+            {/* </Container> */}
         </Layout>
     );
 };

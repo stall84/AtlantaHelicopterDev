@@ -35,6 +35,7 @@ async function createBlogPostPages(graphql, actions) {
         edges {
           node {
             id
+            title
             publishedAt
             slug {
               current
@@ -53,17 +54,18 @@ async function createBlogPostPages(graphql, actions) {
     .filter((edge) => !isFuture(new Date(edge.node.publishedAt))) // Utilize date-fns helper function to filter the posts by their published date (specifically those NOT in the future, or already)
     .forEach((edge, index) => {
       const previous = index === postEdges.length - 1 ? null : postEdges[index + 1].node;
+      console.log('postEdges Node: ', postEdges[index].node);
       const next = index === 0 ? null : postEdges[index - 1].node;
       const { id, slug = {}, publishedAt } = edge.node;
       const dateSegment = format(new Date(publishedAt), 'yyyy/MM');
-      const path = `/blog/${dateSegment}/${slug.current}/`;
-      const fullSlug = path;
+      const path = `/blog/${slug.current}/`;
+      // const fullSlug = path;
 
       createPage({
         path,
         component: require.resolve('./src/templates/BlogPost/index.tsx'),
         context: {
-          fullSlug,
+          fullSlug: `${edge.node.slug.current}`,
           id,
           previous,
           next
