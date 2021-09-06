@@ -1,5 +1,7 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const { isFuture } = require('date-fns');
+const { format } = require('date-fns');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -23,6 +25,57 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value
     });
   }
+};
+
+async function createBlogPostPages(graphql, actions) {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allSanityPost(filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }) {
+        edges {
+          node {
+            id
+            title
+            publishedAt
+            slug {
+              current
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (result.errors) throw result.errors;
+
+  const postEdges = (result.data.allSanityPost || {}).edges || [];
+
+  postEdges
+    .filter((edge) => !isFuture(new Date(edge.node.publishedAt))) // Utilize date-fns helper function to filter the posts by their published date (specifically those NOT in the future, or already)
+    .forEach((edge, index) => {
+      const previous = index === postEdges.length - 1 ? null : postEdges[index + 1].node;
+      console.log('postEdges Node: ', postEdges[index].node);
+      const next = index === 0 ? null : postEdges[index - 1].node;
+      const { id, slug = {}, publishedAt } = edge.node;
+      const dateSegment = format(new Date(publishedAt), 'yyyy/MM');
+      const path = `/blog/${slug.current}/`;
+      // const fullSlug = path;
+
+      createPage({
+        path,
+        component: require.resolve('./src/templates/BlogPost/index.tsx'),
+        context: {
+          fullSlug: `${edge.node.slug.current}`,
+          id,
+          previous,
+          next
+        }
+      });
+    });
+}
+
+exports.createPages = async ({ graphql, actions }) => {
+  await createBlogPostPages(graphql, actions);
 };
 
 // exports.createPages = async ({ graphql, actions }) => {

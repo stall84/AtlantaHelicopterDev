@@ -15,91 +15,110 @@ import * as Styled from './styles';
 interface Post {
   node: {
     id: string;
-    fields: {
-      slug: string;
+    title: string;
+    publishedAt: string;
+    slug: {
+      current: string;
     };
-    frontmatter: {
-      title: string;
-      description: string;
-      date: string;
-      tags: string[];
-      cover: {
-        childImageSharp: {
-          gatsbyImageData: IGatsbyImageData
-        };
-      };
-    };
+    _rawExcerpt: React.ReactNode;
+    mainImage: {
+      asset: {
+        gatsbyImageData: IGatsbyImageData;
+      }
+    }
   };
 }
 
 const Posts: React.FC = () => {
-  const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`{
-  markdownRemark(frontmatter: {category: {eq: "blog section"}}) {
-    frontmatter {
-      title
-      subtitle
-    }
-  }
-  allMarkdownRemark(
-    filter: {frontmatter: {category: {eq: "blog"}, published: {eq: true}}}
-    sort: {fields: frontmatter___date, order: DESC}
-  ) {
-    edges {
-      node {
-        id
-        html
-        fields {
-          slug
-        }
-        frontmatter {
+  const { allSanityPost } = useStaticQuery(graphql`{
+
+    allSanityPost(filter: { publishedAt: { ne: null } } ) {
+      edges {
+        node {
+          id
           title
-          description
-          date(formatString: "MMM DD, YYYY")
-          tags
-          cover {
-            childImageSharp {
-              gatsbyImageData(width: 800, layout: CONSTRAINED)
+          publishedAt
+          slug {
+            current
+          }
+          _rawExcerpt(resolveReferences: { maxDepth: 5 } )
+          mainImage {
+            asset {
+              gatsbyImageData
             }
           }
         }
       }
     }
-  }
+  # markdownRemark(frontmatter: {category: {eq: "blog section"}}) {
+  #   frontmatter {
+  #     title
+  #     subtitle
+  #   }
+  # }
+  # allMarkdownRemark(
+  #   filter: {frontmatter: {category: {eq: "blog"}, published: {eq: true}}}
+  #   sort: {fields: frontmatter___date, order: DESC}
+  # ) {
+  #   edges {
+  #     node {
+  #       id
+  #       html
+  #       fields {
+  #         slug
+  #       }
+  #       frontmatter {
+  #         title
+  #         description
+  #         date(formatString: "MMM DD, YYYY")
+  #         tags
+  #         cover {
+  #           childImageSharp {
+  #             gatsbyImageData(width: 800, layout: CONSTRAINED)
+  #           }
+  #         }
+  #       }
+  #     }
+  #   }
+  # }
 }
 `);
 
-  const sectionTitle: SectionTitle = markdownRemark.frontmatter;
-  const posts: Post[] = allMarkdownRemark.edges;
+  // const sectionTitle: SectionTitle = markdownRemark.frontmatter;
+  const posts: Post[] = allSanityPost.edges;
 
   return (
     <Container section>
-      <TitleSection title={sectionTitle.title} subtitle={sectionTitle.subtitle} center />
+      <TitleSection title="Blog" subtitle="All Ma Posts" center />
       <Styled.Posts>
         {posts.map((item) => {
           const {
             id,
-            fields: { slug },
-            frontmatter: { title, cover, description, date, tags }
+            title,
+            publishedAt,
+            slug: { current },
+            mainImage: { asset: { gatsbyImageData } },
+            _rawExcerpt,
           } = item.node;
 
           return (
             <Styled.Post key={id}>
-              <Link to={slug}>
+              <Link to={current}>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 1 }}>
                   <Styled.Card>
                     <Styled.Image>
-                      <GatsbyImage image={cover.childImageSharp.gatsbyImageData} alt={title} />
+                      <GatsbyImage image={gatsbyImageData} alt={title} />
                     </Styled.Image>
                     <Styled.Content>
-                      <Styled.Date>{date}</Styled.Date>
+                      <Styled.Date>{publishedAt}</Styled.Date>
                       <Styled.Title>{title}</Styled.Title>
-                      <Styled.Description>{description}</Styled.Description>
+                      <Styled.Description>Some Stuff</Styled.Description>
                     </Styled.Content>
-                    <Styled.Tags>
+                    {/* <Styled.Tags>
                       {tags.map((item) => (
                         <Styled.Tag key={item}>{item}</Styled.Tag>
                       ))}
-                    </Styled.Tags>
+                    </Styled.Tags> */}
                   </Styled.Card>
                 </motion.div>
               </Link>
