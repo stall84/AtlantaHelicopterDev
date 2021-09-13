@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Container from 'components/ui/Container';
 import TitleSection from 'components/ui/TitleSection';
 import TourCard from 'components/ui/TourCard';
-import { IconProps } from 'components/ui/Icon';
+import Icon, { IconProps } from 'components/ui/Icon';
 
 
 import { SectionTitle } from 'helpers/definitions';
@@ -43,24 +43,31 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
 
   console.log('OrderedTours: ', orderedTours);
   return (
-    <Container section>
-      <TitleSection title="Charters and Tours" subtitle="" hero center />
-      <Styled.h3>
-        All tours listed below are priced <strong>per person</strong>. <br />
-        All charters are priced <strong>per hour</strong><br />
-        All winery/chophouse excursions are total price <strong>up to 3 people</strong><br />
-        Find the perfect fit of time and destinations for you below!
-      </Styled.h3>
-      {
-        toursArray.map((tour) => {
-          return (
-            <Styled.TourInfoItem>
-              <TourCard id={tour.id} name={tour.name} description={tour.desc} price={tour.price} photoLink={tour.photo.id} />
-            </Styled.TourInfoItem>
-          );
-        })
-      }
-    </Container>
+    <>
+      <Styled.Icon className="bounce">
+        <Icon icon="arrow-down" />
+      </Styled.Icon>
+      <Container section>
+        <TitleSection title="Charters and Tours" subtitle="" hero center />
+
+        <Styled.h3>
+          All tours listed below are priced <strong>per person</strong>. <br />
+          All charters are priced <strong>per hour</strong><br />
+          All winery/chophouse excursions are total price <strong>up to 3 people</strong><br />
+          Find the perfect fit of time and destinations for you below!
+        </Styled.h3>
+
+        {
+          toursArray.map((tour) => {
+            return (
+              <Styled.TourInfoItem>
+                <TourCard id={tour.id} name={tour.name} description={tour.desc} price={tour.price} photoLink={tour.photo.id} />
+              </Styled.TourInfoItem>
+            );
+          })
+        }
+      </Container>
+    </>
   );
 };
 

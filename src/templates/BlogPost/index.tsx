@@ -80,30 +80,37 @@ const BlogPostTemplate: React.FC<Props> = ({ data, pageContext }) => {
 
     return (
         <Layout>
-            <SEO title={post.title} />
-            {/* <Container section> */}
-            <TitleSection title={format(new Date(post.publishedAt), 'yyyy-MM')} subtitle={post.title} />
-            {/* <FormatHtml content={post.html} /> */}
-            <BlogPost {...post} />
-            <h1>{previous.slug.current}</h1>
-            <h1>{next.slug.current}</h1>
-            <Styled.Links>
-                <span>
-                    {previous && (
-                        <Link to={`/blog/${previous.slug.current}`} rel="previous" >
-                            ← {previous.title}
-                        </Link>
-                    )}
-                </span>
-                <span>
-                    {next && (
-                        <Link to={`/blog/${next.slug.current}`} rel="next" >
-                            {next.title} →
-                        </Link>
-                    )}
-                </span>
-            </Styled.Links>
-            {/* </Container> */}
+            <Container section>
+                {
+                    post && (
+                        <>
+                            <SEO title={post.title} />
+
+                            <TitleSection title={post.title} subtitle={format(new Date(post.publishedAt), 'yyyy-MM')} center />
+
+                        </>
+                    )
+                }
+
+                {post && <BlogPost {...post} />}
+
+                <Styled.Links>
+                    <span>
+                        {previous && (
+                            <Link to={`/blog/${previous.slug.current}`} rel="previous" >
+                                ← <Styled.Span>{previous.title}</Styled.Span>
+                            </Link>
+                        )}
+                    </span>
+                    <span>
+                        {next && (
+                            <Link to={`/blog/${next.slug.current}`} rel="next" >
+                                <Styled.Span>{next.title}</Styled.Span> →
+                            </Link>
+                        )}
+                    </span>
+                </Styled.Links>
+            </Container>
         </Layout>
     );
 };
