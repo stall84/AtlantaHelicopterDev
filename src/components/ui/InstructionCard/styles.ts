@@ -7,13 +7,14 @@ export const InstructionCard = styled.div`
 `;
 
 export const Wrapper = styled.div`
-    ${tw`flex flex-col justify-center m-1 items-center`};
+    ${tw`flex flex-col justify-center m-1 p-2 items-center`};
 `;
 
 export const Title = styled.h3`
-  ${tw`sm:text-xl text-red mt-1 font-semibold text-center`};
+  ${tw`sm:text-xl text-red mb-4 font-semibold text-center`};
 `;
 
 export const Content = styled.p`
-  ${tw`mt-1 text-black text-center`};
+  ${tw`sm:m-2 p-1 sm:p-3 text-black text-center`};
 `;
+

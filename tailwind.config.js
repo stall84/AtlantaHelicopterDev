@@ -8,12 +8,14 @@ module.exports = {
         black: '#1f1f1f',
         offWhite: '#f3f1f0',
         slate: 'rgba(148,148,148,150)',
+        veryLightGrey: '#e7ebed',
         teal2: '#2ad4d4',
         blue2: '#2a7fd4',
         green2: '#2ad47f'
       },
       height: {
-        mobile: '4rem'
+        mobile: '4rem',
+        mobHeader: '6.5rem'
       },
       width: {
         mobile: '8rem'

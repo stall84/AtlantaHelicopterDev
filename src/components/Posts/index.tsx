@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage } from "gatsby-plugin-image";
 import Link from 'gatsby-link';
 import { motion } from 'framer-motion';
-
+import { format } from 'date-fns';
 import Container from 'components/ui/Container';
 import TitleSection from 'components/ui/TitleSection';
 
@@ -110,7 +110,7 @@ const Posts: React.FC = () => {
                       <GatsbyImage image={gatsbyImageData} alt={title} />
                     </Styled.Image>
                     <Styled.Content>
-                      <Styled.Date>{publishedAt}</Styled.Date>
+                      <Styled.Date>{format(new Date(publishedAt), 'yyyy-MM')}</Styled.Date>
                       <Styled.Title>{title}</Styled.Title>
                       <Styled.Description>Some Stuff</Styled.Description>
                     </Styled.Content>

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 
+
 export const Title = styled.h3`
   ${tw`font-semibold mb-4`};
 `;
@@ -10,5 +11,13 @@ export const Image = styled.figure`
 `;
 
 export const Links = styled.div`
-  ${tw`w-full flex justify-between mt-10`};
+  ${tw`w-3/4 sm:w-full flex justify-between mt-10`};
+`;
+
+export const Span = styled.span`
+  ${tw`hidden sm:flex sm:text-lightRed`}
+`;
+
+export const Arrows = styled.span`
+  ${tw`text-lightRed`}
 `;

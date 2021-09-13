@@ -31,7 +31,10 @@ async function createBlogPostPages(graphql, actions) {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allSanityPost(filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }) {
+      allSanityPost(
+        filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+        sort: { fields: publishedAt, order: DESC }
+      ) {
         edges {
           node {
             id
@@ -54,9 +57,11 @@ async function createBlogPostPages(graphql, actions) {
     .filter((edge) => !isFuture(new Date(edge.node.publishedAt))) // Utilize date-fns helper function to filter the posts by their published date (specifically those NOT in the future, or already)
     .forEach((edge, index) => {
       const previous = index === postEdges.length - 1 ? null : postEdges[index + 1].node;
-      console.log('postEdges Node: ', postEdges[index].node);
+      console.log(`POST :: ${edge.node.slug.current}  --  INDEX :: ${index}`);
       const next = index === 0 ? null : postEdges[index - 1].node;
       const { id, slug = {}, publishedAt } = edge.node;
+      console.log(`INDEX :: ${index}  --  PREVIOUS :: ${previous ? previous.slug.current : 'null'}`);
+      console.log(`INDEX :: ${index}  --  NEXT :: ${next ? next.slug.current : 'null'}`);
       const dateSegment = format(new Date(publishedAt), 'yyyy/MM');
       const path = `/blog/${slug.current}/`;
       // const fullSlug = path;
