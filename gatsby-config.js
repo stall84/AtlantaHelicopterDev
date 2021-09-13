@@ -4,8 +4,8 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `North Atlanta Executive Air Service`,
-    description: `Specializing in helicopter tours, charters, rotary or fixed wing flight training, and aircraft management in the greater Atlanta, Georgia region. Operating out of Peachtree-Dekalb airport in Buckhead, and offering a variety of aerial tours, winery excursions, and custom charters or events to fit any budget.`,
+    title: `Atlanta Helicopter Tours`,
+    description: `Specializing in helicopter tours, charters, rotary or fixed wing flight training, and aircraft management in the greater Atlanta, Georgia region. Operating out of Fulton County airport near Six Flags Over Georgia, and offering a variety of aerial tours, winery excursions, and custom charters or events to fit any budget.`,
     author: `Michael Stallings`,
     published: `2021`,
     founded: `2002`,
@@ -62,8 +62,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `www.atlantaheli.com`,
-        short_name: `atlantaheli.com`,
+        name: `www.atlantahelicoptertours.com`,
+        short_name: `atlantahelicoptertours.com`,
         start_url: `/`,
         background_color: `#81e6d9`,
         theme_color: `#81e6d9`,
