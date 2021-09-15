@@ -7,8 +7,8 @@
 @tailwind utilities;
 
 .logoSpacing {
-  margin-top: -0.36rem;
-  margin-bottom: 0.36rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .heroBanner {
@@ -41,6 +41,9 @@
 }
 
 @media screen and (max-width: 415px) {
+  .logoSpacing {
+    width: 140px;
+  }
   .heroBanner {
     height: 40vh;
   }

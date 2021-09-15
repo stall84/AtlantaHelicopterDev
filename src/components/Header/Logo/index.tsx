@@ -26,7 +26,7 @@ const Logo: React.FC = () => {
   return (
     <Styled.Logo to="/">
       <Styled.Image>
-        <StaticImage className="logoSpacing" src="../../../assets/images/logoV2-mod2.png" alt="Atlanta Helicopters Logo" placeholder="blurred" width={300} />
+        <StaticImage className="logoSpacing" src="../../../assets/images/atl_heli_logo_1.png" alt="Atlanta Helicopters Logo" placeholder="blurred" width={190} layout="constrained" />
       </Styled.Image>
       <Styled.Text>{logoTitle}</Styled.Text>
     </Styled.Logo>

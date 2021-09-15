@@ -15,7 +15,8 @@ module.exports = {
       },
       height: {
         mobile: '4rem',
-        mobHeader: '6.5rem'
+        mobHeader: '6.5rem',
+        mainHeader: '8.85rem'
       },
       width: {
         mobile: '8rem'
