@@ -9,7 +9,6 @@ module.exports = {
     author: `Michael Stallings`,
     published: `2021`,
     founded: `2002`,
-    owner: `Alister Pereira`,
     location: `Atlanta, Georgia, USA`
   },
   plugins: [
