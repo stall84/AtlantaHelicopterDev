@@ -17,20 +17,26 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query SiteLayoutQuery {
       site {
         siteMetadata {
           title
         }
       }
+      layoutBg: sanityColors(color_title: {eq: "Layout-Background"}) {
+        color_hex
+      }
     }
   `);
-  console.log('ENV KEYS: ', process.env.XOLA_SELLER_API_KEY)
+
+  // DevNotes: The quickest and easiest way to allow the client to change design options like background color, etc is to have them publish the
+  // hexcode to the CMS (sanity) and then pull them off in the static query, and add them straight to the components style prop
+  const layoutBg: string = data.layoutBg.color_hex;
   return (
     <>
       <GlobalStyles />
       <AnimatePresence exitBeforeEnter>
-        <Styled.Layout>
+        <Styled.Layout style={{ backgroundColor: `${layoutBg}` }}>
           <Header siteTitle={data.site.siteMetadata.title} />
           <motion.div
             initial={{ y: 30, opacity: 0 }}

@@ -50,37 +50,6 @@ const Posts: React.FC = () => {
         }
       }
     }
-  # markdownRemark(frontmatter: {category: {eq: "blog section"}}) {
-  #   frontmatter {
-  #     title
-  #     subtitle
-  #   }
-  # }
-  # allMarkdownRemark(
-  #   filter: {frontmatter: {category: {eq: "blog"}, published: {eq: true}}}
-  #   sort: {fields: frontmatter___date, order: DESC}
-  # ) {
-  #   edges {
-  #     node {
-  #       id
-  #       html
-  #       fields {
-  #         slug
-  #       }
-  #       frontmatter {
-  #         title
-  #         description
-  #         date(formatString: "MMM DD, YYYY")
-  #         tags
-  #         cover {
-  #           childImageSharp {
-  #             gatsbyImageData(width: 800, layout: CONSTRAINED)
-  #           }
-  #         }
-  #       }
-  #     }
-  #   }
-  # }
 }
 `);
 

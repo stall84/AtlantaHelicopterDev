@@ -47,6 +47,7 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
       <Styled.Icon className="bounce">
         <Icon icon="arrow-down" />
       </Styled.Icon>
+
       <Container section>
         <TitleSection title="Charters and Tours" subtitle="" hero center />
 

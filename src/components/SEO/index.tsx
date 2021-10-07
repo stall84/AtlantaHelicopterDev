@@ -28,7 +28,6 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
             title
             description
             author
-            owner
             location
           }
         }
@@ -49,10 +48,6 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
         {
           name: `description`,
           content: metaDescription
-        },
-        {
-          name: `owner`,
-          content: site.siteMetadata.owner
         },
         {
           name: `author`,
