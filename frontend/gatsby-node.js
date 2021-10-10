@@ -2,6 +2,7 @@ const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const { isFuture } = require('date-fns');
 const { format } = require('date-fns');
+const fetch = require(`node-fetch`);
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -80,44 +81,34 @@ exports.createPages = async ({ graphql, actions }) => {
   await createBlogPostPages(graphql, actions);
 };
 
-// exports.createPages = async ({ graphql, actions }) => {
-//   const { createPage } = actions;
-//   const blogPostTemplate = path.resolve(`src/templates/BlogPost/index.tsx`);
-
-//   const res = await graphql(`
-//     query {
-//       allMarkdownRemark(
-//         filter: { frontmatter: { category: { eq: "blog" } } }
-//         sort: { fields: frontmatter___date, order: DESC }
-//       ) {
-//         edges {
-//           node {
-//             fields {
-//               slug
-//             }
-//             frontmatter {
-//               title
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `);
-
-//   const posts = res.data.allMarkdownRemark.edges;
-
-//   posts.forEach((post, index) => {
-//     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-//     const next = index === 0 ? null : posts[index - 1].node;
-
-//     createPage({
-//       path: `${post.node.fields.slug}`,
-//       component: blogPostTemplate,
-//       context: {
-//         slug: `${post.node.fields.slug}`,
-//         previous,
-//         next
-//       }
-//     });
-//   });
-// };
+exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
+  try {
+    const result = await fetch(`https://xola.com/api/experiences?seller=5d2d2aabde7c4b0eb96866bd`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-API-VERSION': '2017-06-10',
+        'X-API-KEY': `o-sf0qykUZZr7L9O7lpqEeVhil2NnMFHIwHrU3kxNLM`
+      }
+    });
+    const resultData = await result.json();
+    console.log('RESULT DATA:  ', resultData);
+    resultData.data.forEach((item) => {
+      createNode({
+        parent: null,
+        children: [],
+        internal: {
+          type: `TESTING`,
+          contentDigest: createContentDigest(resultData)
+        },
+        id: item.id,
+        name: item.name,
+        description: item.desc,
+        duration: item.duration,
+        price: item.price,
+        priceType: item.priceType
+      });
+    });
+  } catch (error) {
+    console.warn('Error retrieving Xola at build time:  ', error);
+  }
+};
