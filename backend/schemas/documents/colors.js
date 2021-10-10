@@ -14,7 +14,7 @@ export default {
       name: "color_hex",
       title: "Color Hex Code",
       description:
-        "You can find a hex-color finder at  https://htmlcolorcodes.com/  type in a color name and it will show you the hex code for that color, you can also modify that to your exact liking.",
+        "You can find a hex-color finder at  https://htmlcolorcodes.com/  type in a color name and it will show you the hex code for that color, you can also modify that to your exact liking. Leave blank to use site-default coloring",
       type: "string",
     },
   ],
