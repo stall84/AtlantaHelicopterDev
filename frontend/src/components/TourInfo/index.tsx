@@ -12,34 +12,46 @@ import { SectionTitle } from 'helpers/definitions';
 
 import * as Styled from './styles';
 
-// interface Contact {
-//   node: {
-//     id: string;
-//     frontmatter: {
-//       title: string;
-//       content: string;
-//       icon: IconProps;
-//     };
-//   };
-// }
-// interface SanityContact {
-//   node: {
-//     id: string,
-//     contact_type: string;
-//     contact_value: string;
-//     contact_icon: IconProps;
-//     contact_link: string;
-//   }
-// }
+
 interface XolaExperienceArray {
   toursArray: [] | [any] | never[];
 }
 
+type BuildTour = {
+  id: string;
+  name: string;
+  description: string;
+  duration?: number;
+  photoLink?: string;
+  price: number;
+  priceType?: string;
+}
+
 
 const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
-  console.log(toursArray);
+  // console.log(toursArray);
+  const { experiences } = useStaticQuery(graphql`{
+    experiences: allExperience {
+      edges {
+        node {
+          id
+          name
+          description
+          duration
+          price
+          priceType
+          photoLink
+        }
+      }
+    }
+  }`)
+
 
   const orderedTours = toursArray.sort((a, b) => a.price - b.price);
+
+
+  const buildTours = experiences.edges
+  buildTours.sort((a: any, b: any) => a.node.price - b.node.price)
 
   console.log('OrderedTours: ', orderedTours);
   return (
@@ -59,6 +71,23 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
         </Styled.h3>
 
         {
+          buildTours.map((tour: any) => {
+            const {
+              id,
+              name,
+              description,
+              price,
+              photoLink
+            } = tour.node;
+            return (
+              <Styled.TourInfoItem>
+                <TourCard key={id} id={id} name={name} description={description} price={price} photoLink={photoLink} />
+              </Styled.TourInfoItem>
+            );
+          })
+        }
+
+        {/* {
           toursArray.map((tour) => {
             return (
               <Styled.TourInfoItem>
@@ -66,7 +95,8 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
               </Styled.TourInfoItem>
             );
           })
-        }
+        } */}
+
       </Container>
     </>
   );

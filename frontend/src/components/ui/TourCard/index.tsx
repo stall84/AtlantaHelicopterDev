@@ -34,7 +34,7 @@ interface XolaExperience extends Styled.StyledProps {
 
 
 const TourCard: React.FC<XolaExperience> = ({ id, center, name, description, price, priceType, photoLink, cancellationPolicy }) => (
-  <Styled.TourCard center={center}>
+  <Styled.TourCard center={center} id={id} >
     <img src={`${process.env.GATSBY_IMG_TEST}${photoLink}_723x542.jpg`} />
     <Styled.Wrapper center={center}>
       <Styled.Link center target="_blank" href={`https://checkout.xola.com/index.html#seller/${process.env.GATSBY_XOLA_SELLER_ID}/experiences/${id}?openExternal=true`}>

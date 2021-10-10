@@ -97,7 +97,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
         parent: null,
         children: [],
         internal: {
-          type: `TESTING`,
+          type: item.object,
           contentDigest: createContentDigest(resultData)
         },
         id: item.id,
@@ -105,7 +105,8 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
         description: item.desc,
         duration: item.duration,
         price: item.price,
-        priceType: item.priceType
+        priceType: item.priceType,
+        photoLink: item.photo.id
       });
     });
   } catch (error) {
