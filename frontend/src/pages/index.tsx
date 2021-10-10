@@ -17,7 +17,7 @@ const IndexPage: React.FC = () => {
 
   return (
     <Layout>
-      <SEO title="North Atlanta Executive Air Service" />
+      <SEO title="Atlanta Helicopter Tours" />
 
       <HeroBanner />
       <Services />
