@@ -22,6 +22,13 @@ const BlockText: React.FC = () => {
                 }
             }
     }`)
+    const color = (props: any) => {
+        return (
+            <span style={{ color: props.mark.hex }} >
+                {props.children}
+            </span>
+        )
+    }
 
     const textblocks = blocks.edges;
     console.log('Blocks:  ', blocks)
@@ -38,7 +45,8 @@ const BlockText: React.FC = () => {
                         return (
                             <Card>
                                 {!_rawBlockTextEditor && <h1> LOADING BLOCK TEXT ... </h1>}
-                                {_rawBlockTextEditor && <BlockContent blocks={_rawBlockTextEditor} />}
+                                {_rawBlockTextEditor && <BlockContent blocks={_rawBlockTextEditor} serializers={{ marks: { color } }} imageOptions={{ fit: 'max' }} projectId="jaookn88" dataset="production" />}
+                                {_rawBlockTextEditor && BlockContent && console.log('BlockContent Component:  ', BlockContent)}
                             </Card>
                         )
                     })
