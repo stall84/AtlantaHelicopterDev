@@ -146,8 +146,6 @@ const HeroBanner: React.FC = () => {
 };
 
 const StyledHeroBanner = styled(HeroBanner)`
-min-height: 500px;
-
 
 `;
 export default StyledHeroBanner;
