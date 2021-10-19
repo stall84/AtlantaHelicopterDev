@@ -29,6 +29,7 @@
     "gatsby-plugin-postcss": "^4.9.0",
     "gatsby-plugin-purgecss": "^6.0.2",
     "gatsby-plugin-react-helmet": "^4.9.0",
+    "gatsby-plugin-sass": "^4.14.0",
     "gatsby-plugin-sharp": "^3.9.0",
     "gatsby-plugin-styled-components": "^4.9.0",
     "gatsby-plugin-typescript": "^3.9.0",
@@ -46,6 +47,7 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-slick": "^0.28.1",
+    "sass": "^1.43.2",
     "styled-components": "^5.1.0",
     "tailwind.macro": "^1.0.0-alpha.10",
     "tailwindcss": "^2.2.4"
