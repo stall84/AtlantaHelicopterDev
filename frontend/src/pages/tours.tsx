@@ -46,19 +46,23 @@ const ToursPage: React.FC = () => {
 
 
     return (
+        // <Layout>
+        //     <SEO title="Charters and Tours" />
+        //     {
+        //         !toursList && <h1>Loading...</h1>
+        //     }
+        //     {
+        //         errorMsg && <h1>{errorMsg}</h1>
+        //     }
+        //     {
+        //         toursList && <TourInfo toursArray={toursList} />
+        //     }
+
+        //     <ConctactInfo />
+        // </Layout>
         <Layout>
             <SEO title="Charters and Tours" />
-            {
-                !toursList && <h1>Loading...</h1>
-            }
-            {
-                errorMsg && <h1>{errorMsg}</h1>
-            }
-            {
-                toursList && <TourInfo toursArray={toursList} />
-            }
-
-            <ConctactInfo />
+            <TourInfo toursArray={[]} />
         </Layout>
     );
 };

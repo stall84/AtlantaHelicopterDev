@@ -1,20 +1,42 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-
-import Banner from 'components/ui/Banner';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import Container from 'components/ui/Container';
 import { SectionTitle } from 'helpers/definitions';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import { convertToBgImage } from 'gbimage-bridge';
 import BackgroundImage from 'gatsby-background-image';
+import * as Styled from './styles';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import Carousel from 'components/ui/Carousel';
+import Button from 'components/ui/Button';
 
-interface SectionHeroBanner extends SectionTitle {
-  content: string;
+// interface SectionHeroBanner extends SectionTitle {
+//   content: string;
+//   linkTo: string;
+//   linkText: string;
+// }
+
+interface SectionBannerProps {
+  title: string;
+  subtitle?: string;
+  content: React.ReactNode;
   linkTo: string;
   linkText: string;
+  bgImg?: string;
 }
+
+const Banner: React.FC<SectionBannerProps> = ({ title, subtitle, content, linkTo, linkText, bgImg }) => (
+  <Styled.Banner>
+    <Container section>
+      <Styled.Title>{title}</Styled.Title>
+      <Styled.Content>{content}</Styled.Content>
+      <Link to={linkTo}>
+        <Button primary>{linkText}</Button>
+      </Link>
+    </Container>
+  </Styled.Banner>
+);
 
 
 
@@ -83,7 +105,7 @@ const HeroBanner: React.FC = () => {
     }
   `);
 
-  const heroBanner: SectionHeroBanner = markdownRemark.frontmatter;
+  // const heroBanner: SectionHeroBanner = markdownRemark.frontmatter;
   const sanityBackground_1 = convertToBgImage(bgImage1.bgImage.asset.gatsbyImageData);
   const sanityBackground_2 = convertToBgImage(bgImage2.bgImage.asset.gatsbyImageData);
   const sanityBackground_3 = convertToBgImage(bgImage3.bgImage.asset.gatsbyImageData);
@@ -91,7 +113,6 @@ const HeroBanner: React.FC = () => {
   const sanityBanner_2 = banner2;
   const sanityBanner_3 = banner3;
   return (
-
 
     <Carousel>
       <>
@@ -138,16 +159,54 @@ const HeroBanner: React.FC = () => {
             linkText={sanityBanner_3.button_text}
           />
         </BackgroundImage>
+        {/* <BackgroundImage
+          Tag='section'
+          {...sanityBackground_1}
+          preserveStackingContext
+          className="heroBanner"
+        >
+          <Banner
+            title={sanityBanner_1.big_text}
+            content={sanityBanner_1.small_text}
+            linkTo={sanityBanner_1.button_link}
+            linkText={sanityBanner_1.button_text}
+          />
+        </BackgroundImage>
+      </>
+      <>
+        <BackgroundImage
+          Tag='section'
+          {...sanityBackground_2}
+          preserveStackingContext
+          className="heroBanner"
+        >
+          <Banner
+            title={sanityBanner_2.big_text}
+            content={sanityBanner_2.small_text}
+            linkTo={sanityBanner_2.button_link}
+            linkText={sanityBanner_2.button_text}
+          />
+        </BackgroundImage>
+      </>
+      <>
+        <BackgroundImage
+          Tag='section'
+          {...sanityBackground_3}
+          preserveStackingContext
+          className="heroBanner"
+        >
+          <Banner
+            title={sanityBanner_3.big_text}
+            content={sanityBanner_3.small_text}
+            linkTo={sanityBanner_3.button_link}
+            linkText={sanityBanner_3.button_text}
+          />
+        </BackgroundImage> */}
       </>
     </Carousel>
-
 
   );
 };
 
-const StyledHeroBanner = styled(HeroBanner)`
-min-height: 500px;
 
-
-`;
-export default StyledHeroBanner;
+export default HeroBanner;

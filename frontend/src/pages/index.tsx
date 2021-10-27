@@ -12,7 +12,6 @@ import BackgroundImage from 'gatsby-background-image';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 
-
 const IndexPage: React.FC = () => {
 
   return (
@@ -22,7 +21,6 @@ const IndexPage: React.FC = () => {
       <HeroBanner />
       <Services />
       <hr />
-      {/* <Testimonials /> */}
       <ConctactInfo />
     </Layout>
   );
