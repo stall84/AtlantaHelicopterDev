@@ -9,7 +9,7 @@ interface Props {
 }
 
 const settings = {
-  autoplay: true,
+  autoplay: false,
   autoplaySpeed: 4500,
   speed: 500,
   infinite: true,

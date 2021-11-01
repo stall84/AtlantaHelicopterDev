@@ -43,7 +43,7 @@ const ToursPage: React.FC = () => {
             .catch(error => setErrorMsg(error.message))
     }, []);
 
-
+    console.log('Tours:  ', toursList)
 
     return (
         // <Layout>
