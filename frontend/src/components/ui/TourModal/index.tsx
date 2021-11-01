@@ -16,15 +16,18 @@ interface MiniModalProps {
   photoLink?: string;
 }
 
-const MiniTourCard: React.FC<MiniModalProps> = ({ id, name, description }) => (
+const MiniTourCard: React.FC<MiniModalProps> = ({ id, name, description, price }) => (
   <Styled.TourCard key={id}>
     <Styled.Wrapper>
       <Styled.Title>
-        {name && name}
+        {name}
       </Styled.Title>
       <Styled.Content>
-        {description && description}
+        {description}
       </Styled.Content>
+      <Styled.PriceDiv>
+        <Styled.Price>{price}</Styled.Price>
+      </Styled.PriceDiv>
     </Styled.Wrapper>
   </Styled.TourCard>
 )
@@ -40,6 +43,7 @@ const TourModal: React.FC = () => {
           name
           description
           duration
+          price
         }
       }
     }
@@ -64,8 +68,8 @@ const TourModal: React.FC = () => {
       <Styled.TourContainer>
         {
           experiences.edges && experiences.edges.map((tour: any) => {
-            const { id, name, description } = tour.node;
-            return <MiniTourCard id={id} name={name} description={description} />
+            const { id, name, description, price } = tour.node;
+            return <MiniTourCard id={id} name={name} description={description} price={price} />
           })
         }
       </Styled.TourContainer>

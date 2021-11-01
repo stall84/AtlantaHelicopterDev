@@ -44,9 +44,9 @@ const Banner: React.FC<SectionBannerProps> = ({ title, subtitle, content, linkTo
           <Button primary>{linkText}</Button>
         </Link>
         <div
-          style={GridStyles}
+
           onMouseEnter={(e) => e && setisShown(true)}
-          onMouseLeave={(e) => e && modalFader()}
+        // onMouseLeave={(e) => e && modalFader()}
         >
           <Button
             primary
@@ -196,17 +196,7 @@ const HeroBanner: React.FC = () => {
   );
 };
 
-const Styling = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center'
-}
-const GridStyles = {
-  display: 'grid',
-  backgroundColor: 'beige',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gridTemplateRows: '1fr 3fr'
-}
+
 
 
 export default HeroBanner;
