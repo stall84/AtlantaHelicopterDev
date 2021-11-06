@@ -4,6 +4,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import TourCard from "../TourCard";
 import * as Styled from "./styles";
+import { GatsbyImage } from "gatsby-plugin-image/dist/src/components/gatsby-image.browser";
+import { StaticImage } from "gatsby-plugin-image";
 
 
 interface MiniModalProps {
@@ -16,9 +18,10 @@ interface MiniModalProps {
   photoLink?: string;
 }
 
-const MiniTourCard: React.FC<MiniModalProps> = ({ id, name, description, price }) => (
+const MiniTourCard: React.FC<MiniModalProps> = ({ id, name, description, price, priceType }) => (
   <Styled.TourCard key={id}>
     <Styled.Wrapper>
+      <StaticImage src="https://c02.xola.com/cache/images/60e209fafb028149bf55c4ab_723x542.jpg" alt="Somdthing" />
       <Styled.Title>
         {name}
       </Styled.Title>
@@ -26,7 +29,7 @@ const MiniTourCard: React.FC<MiniModalProps> = ({ id, name, description, price }
         {description}
       </Styled.Content>
       <Styled.PriceDiv>
-        <Styled.Price>{price}</Styled.Price>
+        <Styled.Price>{price} per {priceType}</Styled.Price>
       </Styled.PriceDiv>
     </Styled.Wrapper>
   </Styled.TourCard>
@@ -44,6 +47,7 @@ const TourModal: React.FC = () => {
           description
           duration
           price
+          priceType
         }
       }
     }
@@ -68,8 +72,8 @@ const TourModal: React.FC = () => {
       <Styled.TourContainer>
         {
           experiences.edges && experiences.edges.map((tour: any) => {
-            const { id, name, description, price } = tour.node;
-            return <MiniTourCard id={id} name={name} description={description} price={price} />
+            const { id, name, description, price, priceType } = tour.node;
+            return <MiniTourCard id={id} name={name} description={description} price={price} priceType={priceType} />
           })
         }
       </Styled.TourContainer>

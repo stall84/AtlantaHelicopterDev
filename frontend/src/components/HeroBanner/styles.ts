@@ -25,3 +25,7 @@ export const Title = styled.h1`
   ${tw`uppercase mb-1 sm:mb-5 text-lg sm:text-3xl w-full text-center`};
   text-shadow: 1px 1px 1px rgba(200,90,87,200);
 `;
+
+export const ButtonDiv = styled.div`
+  ${tw`hidden sm:flex`}
+`;

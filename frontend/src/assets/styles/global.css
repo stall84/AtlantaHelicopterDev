@@ -12,7 +12,7 @@
 }
 
 .heroBanner {
-  height: 80vh;
+  height: 90vh;
 }
 
 .bounce {
@@ -48,7 +48,7 @@
     height: 40vh;
   }
   .bounce {
-    top: 150px;
+    top: 175px;
     right: 10px;
   }
 }

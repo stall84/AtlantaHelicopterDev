@@ -46,14 +46,16 @@ const Banner: React.FC<SectionBannerProps> = ({ title, subtitle, content, linkTo
         <div
 
           onMouseEnter={(e) => e && setisShown(true)}
-        // onMouseLeave={(e) => e && modalFader()}
+          onMouseLeave={(e) => e && modalFader()}
         >
-          <Button
-            primary
-            hidden={isShown}
-          >
-            Hover over Me!
-          </Button>
+          <Styled.ButtonDiv>
+            <Button
+              primary
+              hidden={isShown}
+            >
+              *Hover* Preview
+            </Button>
+          </Styled.ButtonDiv>
           {/* {
             isShown && <div style={GridStyles} > <p style={{ gridColumn: '1 / 4', backgroundColor: 'orange', height: '100px' }}> BUTTON  </p>  <p style={{ height: '150px', width: '150px' }}>1</p> <p style={{ height: '150px', width: '150px' }}>2</p> <p style={{ height: '150px', width: '150px' }}>3</p></div>
           } */}

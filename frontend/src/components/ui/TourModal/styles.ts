@@ -6,7 +6,7 @@ export const TourContainer = styled.section`
 `;
 
 export const TourCard = styled.div`
-    ${tw`max-w-sm max-h-sm flex flex-col my-1 mx-1 p-1 bg-lightRed rounded-lg border border-gray-300 hover:border- hover:bg-offWhite`};
+    ${tw`sm:max-w-sm sm:max-h-sm flex flex-col my-1 mx-1 p-1 bg-slate rounded-lg border border-gray-300 hover:border- hover:bg-offWhite`};
 `;
 
 export const Wrapper = styled.div`
