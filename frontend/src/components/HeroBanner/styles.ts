@@ -27,5 +27,5 @@ export const Title = styled.h1`
 `;
 
 export const ButtonDiv = styled.div`
-  ${tw`hidden sm:flex`}
+  ${tw`sm:flex m-2 p-2`}
 `;

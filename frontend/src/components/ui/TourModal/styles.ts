@@ -10,7 +10,7 @@ export const TourCard = styled.div`
 `;
 
 export const Wrapper = styled.div`
-    ${tw`flex flex-col justify-center m-1 items-center`};
+    ${tw`flex flex-col justify-between m-1 items-center`};
 `;
 
 export const Title = styled.h3`
@@ -22,7 +22,7 @@ export const Content = styled.p`
 `;
 
 export const PriceDiv = styled.div`
-    ${tw`mb-3 p-2 border border-red rounded-md`}
+    ${tw`m-3 p-2 border border-red rounded-md`}
 `
 
 export const Price = styled.p`
