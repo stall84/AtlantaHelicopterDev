@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import Container from 'components/ui/Container';
 import { SectionTitle } from 'helpers/definitions';
@@ -10,6 +10,8 @@ import styled from 'styled-components';
 import tw from 'tailwind.macro';
 import Carousel from 'components/ui/Carousel';
 import Button from 'components/ui/Button';
+
+import TourModal from '../ui/TourModal';
 
 // interface SectionHeroBanner extends SectionTitle {
 //   content: string;
@@ -26,17 +28,47 @@ interface SectionBannerProps {
   bgImg?: string;
 }
 
-const Banner: React.FC<SectionBannerProps> = ({ title, subtitle, content, linkTo, linkText, bgImg }) => (
-  <Styled.Banner>
-    <Container section>
-      <Styled.Title>{title}</Styled.Title>
-      <Styled.Content>{content}</Styled.Content>
-      <Link to={linkTo}>
-        <Button primary>{linkText}</Button>
-      </Link>
-    </Container>
-  </Styled.Banner>
-);
+const Banner: React.FC<SectionBannerProps> = ({ title, subtitle, content, linkTo, linkText, bgImg }) => {
+  const [isShown, setisShown] = useState(false);
+  const modalFader = () => {
+    setTimeout(() => {
+      setisShown(false);
+    }, 2000)
+  }
+  return (
+    <Styled.Banner>
+      <Container section>
+        <Styled.Title>{title}</Styled.Title>
+        <Styled.Content>{content}</Styled.Content>
+        <Link to={linkTo}>
+          <Button primary>{linkText}</Button>
+        </Link>
+        <div
+
+          onMouseEnter={(e) => e && setisShown(true)}
+        // onMouseLeave={(e) => e && modalFader()}
+        >
+          <Styled.ButtonDiv>
+            <Button
+              className="transparent"
+              hidden={isShown}
+            >
+              Preview
+            </Button>
+          </Styled.ButtonDiv>
+          {/* {
+            isShown && <div style={GridStyles} > <p style={{ gridColumn: '1 / 4', backgroundColor: 'orange', height: '100px' }}> BUTTON  </p>  <p style={{ height: '150px', width: '150px' }}>1</p> <p style={{ height: '150px', width: '150px' }}>2</p> <p style={{ height: '150px', width: '150px' }}>3</p></div>
+          } */}
+          {
+            isShown && <TourModal />
+          }
+        </div>
+      </Container>
+    </Styled.Banner>
+  );
+
+}
+
 
 
 
@@ -159,54 +191,14 @@ const HeroBanner: React.FC = () => {
             linkText={sanityBanner_3.button_text}
           />
         </BackgroundImage>
-        {/* <BackgroundImage
-          Tag='section'
-          {...sanityBackground_1}
-          preserveStackingContext
-          className="heroBanner"
-        >
-          <Banner
-            title={sanityBanner_1.big_text}
-            content={sanityBanner_1.small_text}
-            linkTo={sanityBanner_1.button_link}
-            linkText={sanityBanner_1.button_text}
-          />
-        </BackgroundImage>
-      </>
-      <>
-        <BackgroundImage
-          Tag='section'
-          {...sanityBackground_2}
-          preserveStackingContext
-          className="heroBanner"
-        >
-          <Banner
-            title={sanityBanner_2.big_text}
-            content={sanityBanner_2.small_text}
-            linkTo={sanityBanner_2.button_link}
-            linkText={sanityBanner_2.button_text}
-          />
-        </BackgroundImage>
-      </>
-      <>
-        <BackgroundImage
-          Tag='section'
-          {...sanityBackground_3}
-          preserveStackingContext
-          className="heroBanner"
-        >
-          <Banner
-            title={sanityBanner_3.big_text}
-            content={sanityBanner_3.small_text}
-            linkTo={sanityBanner_3.button_link}
-            linkText={sanityBanner_3.button_text}
-          />
-        </BackgroundImage> */}
+
       </>
     </Carousel>
 
   );
 };
+
+
 
 
 export default HeroBanner;

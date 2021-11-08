@@ -10,8 +10,8 @@ interface Props {
 
 const settings = {
   autoplay: true,
-  autoplaySpeed: 4500,
-  speed: 500,
+  autoplaySpeed: 4800,
+  speed: 800,
   infinite: true,
   dots: true,
   arrows: false,

@@ -15,6 +15,10 @@
   height: 90vh;
 }
 
+.transparent {
+  background-color: transparent;
+}
+
 .bounce {
   position: absolute;
   top: 200px;
@@ -48,7 +52,7 @@
     height: 40vh;
   }
   .bounce {
-    top: 150px;
+    top: 175px;
     right: 10px;
   }
 }

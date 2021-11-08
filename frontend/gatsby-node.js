@@ -4,6 +4,10 @@ const { isFuture } = require('date-fns');
 const { format } = require('date-fns');
 const fetch = require(`node-fetch`);
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
@@ -87,7 +91,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
       headers: {
         'Content-Type': 'application/json',
         'X-API-VERSION': '2017-06-10',
-        'X-API-KEY': `o-sf0qykUZZr7L9O7lpqEeVhil2NnMFHIwHrU3kxNLM`
+        'X-API-KEY': `${process.env.GATSBY_XOLA_SELLER_API_KEY}`
       }
     });
     const resultData = await result.json();
