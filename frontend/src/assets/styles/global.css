@@ -55,4 +55,7 @@
     top: 175px;
     right: 10px;
   }
+  .transparent {
+    display: none;
+  }
 }
