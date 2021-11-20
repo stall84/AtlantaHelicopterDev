@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, ForwardedRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 // import LinkedInfoBlock from 'components/ui/LinkedInfoBlock';
 // import InfoBlock from 'components/ui/InfoBlock';
@@ -25,11 +25,24 @@ type BuildTour = {
   photoLink?: string;
   price: number;
   priceType?: string;
+  ref?: any;
 }
 
 
 const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
-  // console.log(toursArray);
+
+  const cardRef = useRef();
+
+  const clickHandler = (ev: any) => {
+
+    console.log('START _ Clicked on ref:  ', cardRef)
+    cardRef!.current?.scrollIntoView({ behavior: "smooth" })
+    // setTimout?
+    console.log('END _ Clicked on ref w/ current:  ', cardRef.current)
+
+  }
+
+  // Tour Cards will be created at site build time with this implementation, but are still capable of using the useEffect 'dynamic' call to Xola for the tours found in tours.tsx (pages).
   const { experiences } = useStaticQuery(graphql`{
     experiences: allExperience {
       edges {
@@ -46,19 +59,16 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
     }
   }`)
 
+  const buildTours = experiences.edges;
 
-  const orderedTours = toursArray.sort((a, b) => a.price - b.price);
-
-
-  const buildTours = experiences.edges
+  // Sort the tours from lowest to highest price
   buildTours.sort((a: any, b: any) => a.node.price - b.node.price)
 
-  console.log('OrderedTours: ', orderedTours);
   return (
     <>
-      <Styled.Icon className="bounce">
+      {/* <Styled.Icon className="bounce">
         <Icon icon="arrow-down" />
-      </Styled.Icon>
+      </Styled.Icon> */}
 
       <Container section>
         <TitleSection title="Charters and Tours" subtitle="" hero center />
@@ -80,8 +90,8 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
               photoLink
             } = tour.node;
             return (
-              <Styled.TourInfoItem>
-                <TourCard key={id} id={id} name={name} description={description} price={price} photoLink={photoLink} />
+              <Styled.TourInfoItem onClick={(e: any) => clickHandler(e)} >
+                <TourCard key={id} id={id} name={name} description={description} price={price} photoLink={photoLink} ref={cardRef} />
               </Styled.TourInfoItem>
             );
           })
@@ -96,6 +106,8 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
             );
           })
         } */}
+
+        {/* <div id="dummyDiv" ref={dummyDivRef} /> */}
 
       </Container>
     </>

@@ -21,7 +21,7 @@ interface MiniModalProps {
 const MiniTourCard: React.FC<MiniModalProps> = ({ id, name, description, price, priceType, photoLink }) => (
   <Styled.TourCard key={id}>
     <Styled.Wrapper>
-      <img src={`${process.env.GATSBY_IMG_TEST}${photoLink}_723x542.jpg`} />
+      <Styled.Image src={`${process.env.GATSBY_IMG_TEST}${photoLink}_723x542.jpg`} />
       <Styled.Title>
         {name}
       </Styled.Title>
@@ -39,7 +39,7 @@ const TourModal: React.FC = () => {
   const [previewTour, setPreviewTour] = useState(null)
 
   const { experiences, singleTour } = useStaticQuery(graphql`{
-      experiences: allExperience(limit: 3, sort: {fields: duration}) {
+      experiences: allExperience(limit: 2, sort: {fields: duration}) {
         edges {
         node {
           id

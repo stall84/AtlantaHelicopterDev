@@ -7,6 +7,7 @@ export const Logo = styled(Link)`
 `;
 
 export const Text = styled.h1`
+  font-family: "CabinBold", monospace;
   ${tw`sm:flex sm:flex-none sm:mt-1 sm:ml-8 hidden sm:text-red sm:text-xl`};
 `;
 

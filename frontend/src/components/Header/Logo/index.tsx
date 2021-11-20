@@ -20,7 +20,7 @@ const Logo: React.FC = () => {
 }
 `);
 
-  const logoTitle: string = site.siteMetadata.title;
+  const siteTitle: string = site.siteMetadata.title;
   // const logoImage = placeholderImage.childImageSharp.gatsbyImageData;
 
   return (
@@ -28,7 +28,7 @@ const Logo: React.FC = () => {
       <Styled.Image>
         <StaticImage className="logoSpacing" src="../../../assets/images/atl_heli_logo_1.png" alt="Atlanta Helicopters Logo" placeholder="blurred" width={190} layout="constrained" />
       </Styled.Image>
-      <Styled.Text>{logoTitle}</Styled.Text>
+      <Styled.Text>{siteTitle}</Styled.Text>
     </Styled.Logo>
   );
 };

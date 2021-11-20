@@ -6,15 +6,20 @@ export const TourContainer = styled.section`
 `;
 
 export const TourCard = styled.div`
-    ${tw`sm:max-w-sm sm:max-h-sm flex flex-col my-1 mx-1 p-1 bg-slate rounded-lg border border-gray-300 hover:border- hover:bg-offWhite`};
+    ${tw`sm:max-w-sm flex flex-col my-1 mx-1 p-1 bg-slate rounded-lg border border-gray-300 hover:border- hover:bg-offWhite`};
 `;
 
 export const Wrapper = styled.div`
     ${tw`flex flex-col justify-between m-1 items-center`};
 `;
 
+export const Image = styled.img`
+    height: auto;
+    width: 200px;
+`;
+
 export const Title = styled.h3`
-    ${tw`sm:text-xl text-red mt-1 font-semibold text-center`};
+    ${tw`sm:text-lg text-red mt-1 font-semibold text-center`};
 `;
 
 export const Content = styled.p`
