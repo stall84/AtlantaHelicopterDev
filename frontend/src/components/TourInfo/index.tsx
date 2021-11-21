@@ -5,10 +5,8 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Container from 'components/ui/Container';
 import TitleSection from 'components/ui/TitleSection';
 import TourCard from 'components/ui/TourCard';
-import Icon, { IconProps } from 'components/ui/Icon';
 
 
-import { SectionTitle } from 'helpers/definitions';
 
 import * as Styled from './styles';
 
@@ -31,16 +29,39 @@ type BuildTour = {
 
 const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
 
-  const cardRef = useRef();
+  const cardRefMap: any = {};
 
-  const clickHandler = (ev: any) => {
-
-    console.log('START _ Clicked on ref:  ', cardRef)
-    cardRef!.current?.scrollIntoView({ behavior: "smooth" })
-    // setTimout?
-    console.log('END _ Clicked on ref w/ current:  ', cardRef.current)
-
+  const getOrCreateRef = (id: any) => {
+    console.log(`${Date.now()} - getOrCreateRef ran w/ id : `, id)
+    if (!cardRefMap.hasOwnProperty(id)) {
+      cardRefMap[id] = useRef()
+    }
+    return cardRefMap[id]
   }
+
+  // const clickHandler = (ev: any) => {
+
+  //   const targetId = ev.target.id;
+  //   console.log('Event at handler :: ', ev)
+  //   console.log('cardRefMap  ::  ', cardRefMap)
+  //   // console.log('event.target  ::  ', ev.target.id)
+  //   // console.log('START _ Clicked on ref w/current:  ', cardRefMap[ev])
+  //   cardRefMap[targetId].current.scrollIntoView({ behavior: "smooth" })
+
+  // }
+
+  // const cardLooper = () => {
+  //   console.log('CardLooper running.. ')
+
+  //   setInterval(() => {
+  //     for (let prop in cardRefMap) {
+  //       cardRefMap[prop].current.scrollIntoView({ behavior: "smooth" })
+  //     }
+  //   }, 500)
+
+  // }
+
+  // useEffect(cardLooper, [])
 
   // Tour Cards will be created at site build time with this implementation, but are still capable of using the useEffect 'dynamic' call to Xola for the tours found in tours.tsx (pages).
   const { experiences } = useStaticQuery(graphql`{
@@ -90,8 +111,8 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
               photoLink
             } = tour.node;
             return (
-              <Styled.TourInfoItem onClick={(e: any) => clickHandler(e)} >
-                <TourCard key={id} id={id} name={name} description={description} price={price} photoLink={photoLink} ref={cardRef} />
+              <Styled.TourInfoItem key={id}  >
+                <TourCard id={id} name={name} description={description} price={price} photoLink={photoLink} ref={getOrCreateRef(id)} />
               </Styled.TourInfoItem>
             );
           })

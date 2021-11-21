@@ -37,7 +37,7 @@ interface TourCardXola extends Styled.StyledProps {
 
 const TourCard: React.FC<TourCardXola> = forwardRef(({ id, center, name, description, price, priceType, photoLink, cancellationPolicy, clickHandler }, ref) => (
   <div ref={ref}>
-    <Styled.TourCard center={center} id={id} onClick={(e: any) => e && clickHandler(e)}>
+    <Styled.TourCard center={center} id={id}>
       <img src={`${process.env.GATSBY_IMG_TEST}${photoLink}_723x542.jpg`} />
       <Styled.Wrapper center={center}>
         <Styled.Link center target="_blank" href={`https://checkout.xola.com/index.html#seller/${process.env.GATSBY_XOLA_SELLER_ID}/experiences/${id}?openExternal=true`}>
