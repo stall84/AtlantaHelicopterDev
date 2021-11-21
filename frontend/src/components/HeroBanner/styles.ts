@@ -18,6 +18,7 @@ export const Banner = styled.section`
 `;
 
 export const Content = styled.p`
+  font-family: "Oswald", monospace;
   ${tw`text-sm sm:text-base mb-1 sm:mb-8`};
   /* text-shadow: 0.4px 0.4px 0.4px rgba(200,90,87,200); */
 `;

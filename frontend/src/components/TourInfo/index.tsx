@@ -29,39 +29,16 @@ type BuildTour = {
 
 const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
 
-  const cardRefMap: any = {};
-
-  const getOrCreateRef = (id: any) => {
-    console.log(`${Date.now()} - getOrCreateRef ran w/ id : `, id)
-    if (!cardRefMap.hasOwnProperty(id)) {
-      cardRefMap[id] = useRef()
-    }
-    return cardRefMap[id]
-  }
-
-  // const clickHandler = (ev: any) => {
-
-  //   const targetId = ev.target.id;
-  //   console.log('Event at handler :: ', ev)
-  //   console.log('cardRefMap  ::  ', cardRefMap)
-  //   // console.log('event.target  ::  ', ev.target.id)
-  //   // console.log('START _ Clicked on ref w/current:  ', cardRefMap[ev])
-  //   cardRefMap[targetId].current.scrollIntoView({ behavior: "smooth" })
-
-  // }
-
-  // const cardLooper = () => {
-  //   console.log('CardLooper running.. ')
-
-  //   setInterval(() => {
-  //     for (let prop in cardRefMap) {
-  //       cardRefMap[prop].current.scrollIntoView({ behavior: "smooth" })
-  //     }
-  //   }, 500)
-
-  // }
-
-  // useEffect(cardLooper, [])
+  // Temporary solution to draw user's attention to scroll through Tour cards since their size makes only 1 visible on screen at a time.
+  useEffect(() => {
+    const initScroll = setTimeout(() => {
+      window.scrollTo({
+        top: 2700,
+        behavior: "smooth"
+      })
+    }, 1500)
+    return () => clearTimeout(initScroll)
+  }, [])
 
   // Tour Cards will be created at site build time with this implementation, but are still capable of using the useEffect 'dynamic' call to Xola for the tours found in tours.tsx (pages).
   const { experiences } = useStaticQuery(graphql`{
@@ -112,7 +89,7 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
             } = tour.node;
             return (
               <Styled.TourInfoItem key={id}  >
-                <TourCard id={id} name={name} description={description} price={price} photoLink={photoLink} ref={getOrCreateRef(id)} />
+                <TourCard id={id} name={name} description={description} price={price} photoLink={photoLink} />
               </Styled.TourInfoItem>
             );
           })
