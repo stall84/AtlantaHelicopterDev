@@ -21,6 +21,7 @@ const Header: React.FC<Props> = ({ siteTitle }) => {
   `)
   const headerBg: string = data.headerBg.color_hex;
   return (
+    // Implementing basic, first-pass at dynamic client style-selection with CMS controlled backgroundColor on Header
     <Styled.Header style={{ backgroundColor: `${headerBg}` }}>
       <Styled.Wrapper>
         <Logo />

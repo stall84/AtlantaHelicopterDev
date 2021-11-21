@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useEffect, useRef, ForwardedRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 // import LinkedInfoBlock from 'components/ui/LinkedInfoBlock';
 // import InfoBlock from 'components/ui/InfoBlock';
 import Container from 'components/ui/Container';
 import TitleSection from 'components/ui/TitleSection';
 import TourCard from 'components/ui/TourCard';
-import Icon, { IconProps } from 'components/ui/Icon';
 
 
-import { SectionTitle } from 'helpers/definitions';
 
 import * as Styled from './styles';
 
@@ -25,11 +23,24 @@ type BuildTour = {
   photoLink?: string;
   price: number;
   priceType?: string;
+  ref?: any;
 }
 
 
 const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
-  // console.log(toursArray);
+
+  // Temporary solution to draw user's attention to scroll through Tour cards since their size makes only 1 visible on screen at a time.
+  useEffect(() => {
+    const initScroll = setTimeout(() => {
+      window.scrollTo({
+        top: 2700,
+        behavior: "smooth"
+      })
+    }, 1500)
+    return () => clearTimeout(initScroll)
+  }, [])
+
+  // Tour Cards will be created at site build time with this implementation, but are still capable of using the useEffect 'dynamic' call to Xola for the tours found in tours.tsx (pages).
   const { experiences } = useStaticQuery(graphql`{
     experiences: allExperience {
       edges {
@@ -46,19 +57,16 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
     }
   }`)
 
+  const buildTours = experiences.edges;
 
-  const orderedTours = toursArray.sort((a, b) => a.price - b.price);
-
-
-  const buildTours = experiences.edges
+  // Sort the tours from lowest to highest price
   buildTours.sort((a: any, b: any) => a.node.price - b.node.price)
 
-  console.log('OrderedTours: ', orderedTours);
   return (
     <>
-      <Styled.Icon className="bounce">
+      {/* <Styled.Icon className="bounce">
         <Icon icon="arrow-down" />
-      </Styled.Icon>
+      </Styled.Icon> */}
 
       <Container section>
         <TitleSection title="Charters and Tours" subtitle="" hero center />
@@ -80,8 +88,8 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
               photoLink
             } = tour.node;
             return (
-              <Styled.TourInfoItem>
-                <TourCard key={id} id={id} name={name} description={description} price={price} photoLink={photoLink} />
+              <Styled.TourInfoItem key={id}  >
+                <TourCard id={id} name={name} description={description} price={price} photoLink={photoLink} />
               </Styled.TourInfoItem>
             );
           })
@@ -96,6 +104,8 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
             );
           })
         } */}
+
+        {/* <div id="dummyDiv" ref={dummyDivRef} /> */}
 
       </Container>
     </>

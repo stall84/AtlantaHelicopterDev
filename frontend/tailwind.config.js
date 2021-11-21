@@ -3,11 +3,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        red: 'rgba(213,37,37,255)',
-        lightRed: 'rgba(200,90,87,200)',
+        red: 'rgb(213,37,37)',
+        lightRed: 'rgb(200,90,87)',
+        darkRed: '#941a1a',
         black: '#1f1f1f',
         offWhite: '#f3f1f0',
-        slate: 'rgba(148,148,148,150)',
+        slate: 'rgb(148,148,148)',
         veryLightGrey: '#e7ebed',
         teal2: '#2ad4d4',
         blue2: '#2a7fd4',

@@ -8,7 +8,7 @@ interface StyledProps {
 }
 
 export const MainNav = styled.nav<StyledProps>`
-  ${tw`sm:flex flex-col sm:flex-row sm:w-auto w-full order-last sm:order-none my-4 sm:my-0 hidden`};
+  ${tw`lg:flex flex-col lg:flex-row lg:w-auto w-full order-last lg:order-none my-4 lg:my-0 hidden`};
   ${({ open }) => open && tw`flex`};
 `;
 
@@ -35,7 +35,7 @@ export const MainNavItem = motion.custom(styled(Link)`
 `);
 
 export const ToogleMainNav = styled.button<StyledProps>`
-  ${tw`flex flex-col items-end justify-center cursor-pointer w-6 h-5 sm:hidden`};
+  ${tw`flex flex-col items-end justify-center cursor-pointer w-6 h-5 lg:hidden`};
   outline: none !important;
 
   span {

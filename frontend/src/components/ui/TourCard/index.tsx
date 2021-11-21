@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Link } from 'gatsby';
 import Icon, { IconProps } from 'components/ui/Icon';
 import * as Styled from './styles';
@@ -22,7 +22,7 @@ import { motion } from 'framer-motion';
 //   priceType?: string;
 // }
 
-interface XolaExperience extends Styled.StyledProps {
+interface TourCardXola extends Styled.StyledProps {
   id: string;
   name: string;
   description: string;
@@ -33,8 +33,9 @@ interface XolaExperience extends Styled.StyledProps {
 }
 
 
-const TourCard: React.FC<XolaExperience> = ({ id, center, name, description, price, priceType, photoLink, cancellationPolicy }) => (
-  <Styled.TourCard center={center} id={id} >
+const TourCard: React.FC<TourCardXola> = ({ id, center, name, description, price, priceType, photoLink, cancellationPolicy }) => (
+
+  <Styled.TourCard center={center} id={id}>
     <img src={`${process.env.GATSBY_IMG_TEST}${photoLink}_723x542.jpg`} />
     <Styled.Wrapper center={center}>
       <Styled.Link center target="_blank" href={`https://checkout.xola.com/index.html#seller/${process.env.GATSBY_XOLA_SELLER_ID}/experiences/${id}?openExternal=true`}>
@@ -50,8 +51,8 @@ const TourCard: React.FC<XolaExperience> = ({ id, center, name, description, pri
         </Styled.Wrapper>
       </Styled.Link>
     </Styled.Wrapper>
-
   </Styled.TourCard>
-);
+
+)
 
 export default TourCard;

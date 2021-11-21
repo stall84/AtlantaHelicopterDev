@@ -46,7 +46,7 @@ const Banner: React.FC<SectionBannerProps> = ({ title, subtitle, content, linkTo
         <div
 
           onMouseEnter={(e) => e && setisShown(true)}
-        // onMouseLeave={(e) => e && modalFader()}
+          onMouseLeave={(e) => e && modalFader()}
         >
           <Styled.ButtonDiv>
             <Button

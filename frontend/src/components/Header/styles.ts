@@ -3,9 +3,9 @@ import tw from 'tailwind.macro';
 import { Container } from 'components/ui/Container/styles';
 
 export const Header = styled.header`
-  ${tw`sm:h-mainHeader bg-gray-100 border-b border-red `};
+  ${tw`lg:h-mainHeader bg-gray-100 border-b border-red `};
 `;
 
 export const Wrapper = styled(Container)`
-  ${tw`min-h-full items-center justify-around sm:justify-between`};
+  ${tw`min-h-full items-center justify-around`};
 `;

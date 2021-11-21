@@ -11,5 +11,6 @@ export const Content = styled.p`
 `;
 
 export const Title = styled.h1`
+  font-family: "Rubik", monospace;
   ${tw`uppercase mb-1 sm:mb-5 text-lg sm:text-3xl text-lightRed w-full text-center`};
 `;
