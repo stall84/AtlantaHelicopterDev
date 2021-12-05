@@ -9,6 +9,7 @@ export interface StyledProps {
 
 export const Button = motion.custom(styled.button<StyledProps>`
   outline: none !important;
+  font-family: "GoodTimes", monospace;
   ${tw`py-1 px-4 sm:py-2 sm:px-8 rounded-full border border-black text-black`};
 
   ${({ primary }) => (primary ? tw`bg-offWhite` : tw`text-black`)};

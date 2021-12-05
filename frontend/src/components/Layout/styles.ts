@@ -4,3 +4,7 @@ import tw from 'tailwind.macro';
 export const Layout = styled.main`
   ${tw`flex flex-col min-h-screen`};
 `;
+
+export const HeadWrapper = styled.div`
+  ${tw`flex justify-center`}
+`;

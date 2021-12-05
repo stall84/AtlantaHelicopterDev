@@ -8,6 +8,10 @@
 
 /* Custom Fonts */
 @font-face {
+  font-family: 'GoodTimes';
+  src: url('../fonts/good-times-rg.ttf') format('truetype');
+}
+@font-face {
   font-family: 'CabinBold';
   src: url('../fonts/Cabin-Bold.ttf') format('truetype');
 }
@@ -83,7 +87,19 @@
 }
 
 .heroBanner {
-  height: 90vh;
+  height: 100vh;
+}
+
+.header {
+  position: fixed;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+.scrolledHeader {
+  position: fixed;
+  opacity: 50%;
+  background-color: transparent;
 }
 
 .transparent {

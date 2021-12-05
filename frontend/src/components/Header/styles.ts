@@ -3,7 +3,7 @@ import tw from 'tailwind.macro';
 import { Container } from 'components/ui/Container/styles';
 
 export const Header = styled.header`
-  ${tw`lg:h-mainHeader bg-gray-100 border-b border-red `};
+  ${tw`fixed z-50 bg-transparent px-10`};
 `;
 
 export const Wrapper = styled(Container)`

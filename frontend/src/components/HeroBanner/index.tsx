@@ -130,7 +130,9 @@ const HeroBanner: React.FC = () => {
       bgImage3: sanityImages(bgImage_title: {eq: "bgImage_3"}) {
         bgImage {
           asset {
-            gatsbyImageData
+            gatsbyImageData(
+              layout: CONSTRAINED
+            )
           }
         }
       }
@@ -146,54 +148,23 @@ const HeroBanner: React.FC = () => {
   const sanityBanner_3 = banner3;
   return (
 
-    <Carousel>
-      <>
-        <BackgroundImage
-          Tag='section'
-          {...sanityBackground_1}
-          preserveStackingContext
-          className="heroBanner"
-        >
-          <Banner
-            title={sanityBanner_1.big_text}
-            content={sanityBanner_1.small_text}
-            linkTo={sanityBanner_1.button_link}
-            linkText={sanityBanner_1.button_text}
-          />
-        </BackgroundImage>
-      </>
-      <>
-        <BackgroundImage
-          Tag='section'
-          {...sanityBackground_2}
-          preserveStackingContext
-          className="heroBanner"
-        >
-          <Banner
-            title={sanityBanner_2.big_text}
-            content={sanityBanner_2.small_text}
-            linkTo={sanityBanner_2.button_link}
-            linkText={sanityBanner_2.button_text}
-          />
-        </BackgroundImage>
-      </>
-      <>
-        <BackgroundImage
-          Tag='section'
-          {...sanityBackground_3}
-          preserveStackingContext
-          className="heroBanner"
-        >
-          <Banner
-            title={sanityBanner_3.big_text}
-            content={sanityBanner_3.small_text}
-            linkTo={sanityBanner_3.button_link}
-            linkText={sanityBanner_3.button_text}
-          />
-        </BackgroundImage>
 
-      </>
-    </Carousel>
+    <>
+      <BackgroundImage
+        Tag='section'
+        {...sanityBackground_3}
+        preserveStackingContext
+        className="heroBanner"
+      >
+        <Banner
+          title={sanityBanner_1.big_text}
+          content={sanityBanner_1.small_text}
+          linkTo={sanityBanner_1.button_link}
+          linkText={sanityBanner_1.button_text}
+        />
+      </BackgroundImage>
+    </>
+
 
   );
 };
