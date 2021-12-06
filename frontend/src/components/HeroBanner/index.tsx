@@ -41,7 +41,7 @@ const Banner: React.FC<SectionBannerProps> = ({ title, subtitle, content, linkTo
         <Styled.Title>{title}</Styled.Title>
         <Styled.Content>{content}</Styled.Content>
         <Link to={linkTo}>
-          <Button primary>{linkText}</Button>
+          <Button>{linkText}</Button>
         </Link>
         <div
 
