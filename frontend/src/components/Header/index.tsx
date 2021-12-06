@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import MainNav from './MainNav';
 import Logo from './Logo';
@@ -7,33 +7,32 @@ import * as Styled from './styles';
 import { useStaticQuery, graphql } from 'gatsby';
 
 interface Props {
-  siteTitle: string;
+  siteTitle?: string | null;
 }
 
-const Header: React.FC<Props> = ({ siteTitle }) => {
+const Header: React.FC<Props> = (props) => {
+  const siteTitle = props.siteTitle ? props.siteTitle : null;
 
-  const data = useStaticQuery(graphql`
-    query {
-      headerBg: sanityColors(color_title: {eq: "Header-Background"}) {
-        color_hex
-      }
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      window.addEventListener("scroll", () => {
+        setScrolling(window.scrollY > 10)
+      })
     }
-  `)
-  const headerBg: string = data.headerBg.color_hex;
+  }, [])
+
   return (
-    // Implementing basic, first-pass at dynamic client style-selection with CMS controlled backgroundColor on Header
-    <Styled.Header style={{ backgroundColor: `${headerBg}` }}>
-      <Styled.Wrapper>
-        <Logo />
+
+    <header className={`header ${scrolling ? `scrolledHeader` : ''}`}>
+      <Styled.Wrapper scrolled={scrolling}>
+        <Logo scrolling={scrolling} />
         <MainNav />
       </Styled.Wrapper>
-    </Styled.Header>
+    </header>
   )
 
-};
-
-Header.defaultProps = {
-  siteTitle: ``
 };
 
 export default Header;

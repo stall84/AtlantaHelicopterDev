@@ -28,16 +28,15 @@ const Layout: React.FC<Props> = ({ children }) => {
       }
     }
   `);
-
-  // DevNotes: The quickest and easiest way to allow the client to change design options like background color, etc is to have them publish the
-  // hexcode to the CMS (sanity) and then pull them off in the static query, and add them straight to the components style prop
   const layoutBg: string = data.layoutBg.color_hex;
   return (
     <>
       <GlobalStyles />
       <AnimatePresence exitBeforeEnter>
         <Styled.Layout style={{ backgroundColor: `${layoutBg}` }}>
-          <Header siteTitle={data.site.siteMetadata.title} />
+          <Styled.HeadWrapper>
+            <Header siteTitle={data.site.siteMetadata.title} />
+          </Styled.HeadWrapper>
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
