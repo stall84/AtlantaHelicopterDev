@@ -81,9 +81,9 @@
 }
 
 /* Styles */
-.logoSpacing {
-  margin-top: 0;
-  margin-bottom: 0;
+.logoShrunk {
+  display: none;
+  /* width: 100px; */
 }
 
 .heroBanner {
@@ -92,14 +92,22 @@
 
 .header {
   position: fixed;
+  height: 150px;
+  width: 100%;
   z-index: 9998;
   background-color: transparent;
+  transition: all 1s ease;
 }
 
 .scrolledHeader {
   position: fixed;
-  opacity: 80%;
-  background-color: white;
+  width: 100%;
+  background-color: rgba(213, 37, 37, 100);
+  height: 55px;
+}
+
+.scrolledHeadWrapper {
+  margin-left: 20rem;
 }
 
 .transparent {
