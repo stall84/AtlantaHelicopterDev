@@ -29,17 +29,6 @@ type BuildTour = {
 
 const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
 
-  // Temporary solution to draw user's attention to scroll through Tour cards since their size makes only 1 visible on screen at a time.
-  useEffect(() => {
-    const initScroll = setTimeout(() => {
-      window.scrollTo({
-        top: 2700,
-        behavior: "smooth"
-      })
-    }, 1500)
-    return () => clearTimeout(initScroll)
-  }, [])
-
   // Tour Cards will be created at site build time with this implementation, but are still capable of using the useEffect 'dynamic' call to Xola for the tours found in tours.tsx (pages).
   const { experiences } = useStaticQuery(graphql`{
     experiences: allExperience {

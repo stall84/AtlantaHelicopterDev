@@ -50,7 +50,7 @@ const InstructionInfo: React.FC = () => {
     console.log('flightInstructionList: ', flightInstructionList)
 
     return (
-        <Container>
+        <Container section>
             <TitleSection title="Flight Instruction" subtitle="Rotor and Fixed Wing!" center hero />
             {
                 flightInstructionList.map((element) => {
