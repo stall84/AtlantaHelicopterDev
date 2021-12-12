@@ -11,9 +11,9 @@ export const Button = motion.custom(styled.button<StyledProps>`
   outline: none !important;
   background-color: transparent;
   font-family: "GoodTimes", monospace;
-  ${tw`py-1 px-4 sm:py-2 sm:px-8 rounded-full border border-black text-black`};
+  ${tw`py-1 px-4 sm:py-2 sm:px-8 rounded-full border border-white text-white`};
 
-  ${({ primary }) => (primary ? tw`bg-offWhite` : tw`text-black`)};
+  ${({ primary }) => (primary ? tw`bg-offWhite` : tw`text-white`)};
 
   ${({ block }) => block && tw`w-full`};
 

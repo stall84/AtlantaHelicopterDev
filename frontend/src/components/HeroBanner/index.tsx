@@ -13,6 +13,8 @@ import Button from 'components/ui/Button';
 
 import TourModal from '../ui/TourModal';
 
+import Helo3Gif from "../../assets/images/helo-ex-3.gif";
+
 // interface SectionHeroBanner extends SectionTitle {
 //   content: string;
 //   linkTo: string;
@@ -73,7 +75,7 @@ const Banner: React.FC<SectionBannerProps> = ({ title, subtitle, content, linkTo
 
 
 const HeroBanner: React.FC = () => {
-  const { markdownRemark, banner1, banner2, banner3, bgImage1, bgImage2, bgImage3 } = useStaticQuery(graphql`
+  const { markdownRemark, banner1, banner2, banner3, bgImage1, bgImage2, bgImage3, gifBG1 } = useStaticQuery(graphql`
     query {
       markdownRemark(frontmatter: { category: { eq: "hero section" } }) {
         frontmatter {
@@ -136,6 +138,13 @@ const HeroBanner: React.FC = () => {
           }
         }
       }
+      gifBG1: sanityBgVideos(bvideo_number: {eq: "1"}) {
+        bg_video {
+          asset {
+            gatsbyImageData
+          }
+        }
+      }
     }
   `);
 
@@ -143,6 +152,8 @@ const HeroBanner: React.FC = () => {
   const sanityBackground_1 = convertToBgImage(bgImage1.bgImage.asset.gatsbyImageData);
   const sanityBackground_2 = convertToBgImage(bgImage2.bgImage.asset.gatsbyImageData);
   const sanityBackground_3 = convertToBgImage(bgImage3.bgImage.asset.gatsbyImageData);
+  const gifBackground1 = convertToBgImage(gifBG1.bg_video.asset.gatsbyImageData);
+
   const sanityBanner_1 = banner1;
   const sanityBanner_2 = banner2;
   const sanityBanner_3 = banner3;
@@ -150,9 +161,18 @@ const HeroBanner: React.FC = () => {
 
 
     <>
+      {/* <div className='testGif'>
+        <Banner
+          title={sanityBanner_1.big_text}
+          content={sanityBanner_1.small_text}
+          linkTo={sanityBanner_1.button_link}
+          linkText={sanityBanner_1.button_text}
+        />
+      </div> */}
+
       <BackgroundImage
         Tag='section'
-        {...sanityBackground_3}
+        {...gifBackground1}
         preserveStackingContext
         className="heroBanner"
       >
