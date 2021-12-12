@@ -16,6 +16,7 @@ import instruction from "./documents/instruction";
 import services from "./documents/services";
 import colors from "./documents/colors";
 import testBlock from "./documents/testBlock";
+import bgvideo from "./documents/bgvideo";
 
 // Object types
 import bodyPortableText from "./objects/bodyPortableText";
@@ -49,6 +50,7 @@ export default createSchema({
     bioPortableText,
     excerptPortableText,
     testBlock,
+    bgvideo,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

@@ -85,6 +85,12 @@
   display: none;
 }
 
+.testGif {
+  background-image: url('../images/helo-ex-3.gif');
+  background-position: center;
+  background-size: cover;
+}
+
 .heroBanner {
   height: 100vh;
 }

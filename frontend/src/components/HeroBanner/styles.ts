@@ -5,7 +5,7 @@ import tw from 'tailwind.macro';
 export const Banner = styled.section`
   ${tw`flex flex-col sm:pt-40 justify-start h-full border-b border-indigo-100`};
     p, h1 {
-      color: black;
+      color: white;
       /* mix-blend-mode: overlay; */
       transition: color 1s;
       
