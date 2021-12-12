@@ -31,8 +31,8 @@ const Logo: React.FC<LogoProps> = ({ scrolling }) => {
 
   return (
     <Styled.Logo to="/">
-      <Styled.Image>
-        <StaticImage className={`${scrolling ? `logoShrunk` : ''}`} src="../../../assets/images/atl_heli_logo_1.png" alt="Atlanta Helicopters Logo" placeholder="blurred" width={150} layout="constrained" />
+      <Styled.Image className={`${scrolling ? `logoShrunk` : ''}`}>
+        <StaticImage src="../../../assets/images/atl_heli_logo_1.png" alt="Atlanta Helicopters Logo" placeholder="blurred" width={150} layout="constrained" />
       </Styled.Image>
       {
         scrolling && <Styled.Text>{siteTitle}</Styled.Text>
