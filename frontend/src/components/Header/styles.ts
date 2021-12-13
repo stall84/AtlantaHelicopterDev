@@ -15,7 +15,7 @@ export const Header = styled.header`
 
 export const Wrapper = styled(Container)<ScrollStyles>`
   ${tw`min-h-full items-center justify-around`};
-  ${ ({scrolled}) => scrolled && `margin-left: 14rem;`}
+  ${ ({scrolled}) => scrolled && `margin-left: 0rem;`}
   
 `;
 
