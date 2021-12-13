@@ -14,7 +14,7 @@ interface TourCardXolaProps extends Styled.StyledProps {
   cancellationPolicy?: string;
   price: number;
   priceType?: string;
-  hovering: boolean;
+  hovering?: boolean;
 }
 
 const hoverHandler = (event: any) => {
