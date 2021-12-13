@@ -63,23 +63,24 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
           All winery/chophouse excursions are total price <strong>up to 3 people</strong><br />
           Find the perfect fit of time and destinations for you below!
         </Styled.h3>
-
-        {
-          buildTours.map((tour: any) => {
-            const {
-              id,
-              name,
-              description,
-              price,
-              photoLink
-            } = tour.node;
-            return (
-              <Styled.TourInfoItem key={id}  >
-                <TourCard id={id} name={name} description={description} price={price} photoLink={photoLink} />
-              </Styled.TourInfoItem>
-            );
-          })
-        }
+        <Styled.TourGrid>
+          {
+            buildTours.map((tour: any) => {
+              const {
+                id,
+                name,
+                description,
+                price,
+                photoLink
+              } = tour.node;
+              return (
+                <Styled.TourInfoItem key={id}  >
+                  <TourCard id={id} name={name} description={description} price={price} photoLink={photoLink} />
+                </Styled.TourInfoItem>
+              );
+            })
+          }
+        </Styled.TourGrid>
 
         {/* {
           toursArray.map((tour) => {

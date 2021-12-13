@@ -13,8 +13,6 @@ import Button from 'components/ui/Button';
 
 import TourModal from '../ui/TourModal';
 
-import Helo3Gif from "../../assets/images/helo-ex-3.gif";
-
 // interface SectionHeroBanner extends SectionTitle {
 //   content: string;
 //   linkTo: string;
@@ -161,14 +159,6 @@ const HeroBanner: React.FC = () => {
 
 
     <>
-      {/* <div className='testGif'>
-        <Banner
-          title={sanityBanner_1.big_text}
-          content={sanityBanner_1.small_text}
-          linkTo={sanityBanner_1.button_link}
-          linkText={sanityBanner_1.button_text}
-        />
-      </div> */}
 
       <BackgroundImage
         Tag='section'

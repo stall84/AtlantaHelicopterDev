@@ -7,7 +7,7 @@ export interface StyledProps {
 }
 
 export const TourCard = styled.div<StyledProps>`
-  ${tw`flex flex-col my-4 mx-3 p-2 bg-white rounded-lg border border-gray-300 hover:border- hover:bg-offWhite`};
+  ${tw`flex flex-col sm:h-full my-2 mx-2 p-2 rounded-lg border border-gray-300 hover:border- hover:bg-offWhite`};
   ${({ center }) => center && tw`items-center items-center`};
 `;
 
@@ -30,7 +30,7 @@ export const Content = styled.p`
 `;
 
 export const Link = styled.a<StyledProps>`
-  ${tw`flex flex-col my-4 mx-3 p-4 bg-white rounded-lg border border-gray-300`};
+  ${tw`flex flex-col my-1 mx-1 p-2 rounded-lg`};
   ${({ center }) => center && tw`items-center items-center`};
   Button {
     ${tw`hover:bg-lightRed`}

@@ -13,7 +13,7 @@ export const MainNav = styled.nav<StyledProps>`
 `;
 
 export const MainNavItem = motion.custom(styled(Link)`
-  ${tw`relative text-black sm:text-lg border-b border-transparent hover:text-indigo-900 ml-0 sm:ml-8 mt-3 sm:mt-0`};
+  ${tw`relative text-black sm:text-lg border-b border-transparent hover:text-white ml-0 sm:ml-8 mt-3 sm:mt-0`};
   font-family: "GoodTimes", monospace;
   width: max-content;
 
