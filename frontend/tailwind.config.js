@@ -15,6 +15,7 @@ module.exports = {
         green2: '#2ad47f'
       },
       height: {
+        card: '400px',
         mobile: '4rem',
         mobHeader: '6.5rem',
         mainHeader: '8.85rem'
