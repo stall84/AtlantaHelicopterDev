@@ -1,12 +1,15 @@
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 
 export interface StyledProps {
   center?: boolean;
+  bgImage?: IGatsbyImageData | string;
 }
 
 export const InfoBlock = styled.div<StyledProps>`
-  ${tw`flex flex-col sm:min-h-full my-4 mx-3 p-4 bg-white rounded-lg border border-gray-300`};
+  ${({ bgImage }) => bgImage && `background-image: url(${bgImage}); background-position: center; background-size: cover; background-repeat: no-repeat; `}
+  ${tw`flex flex-col sm:min-h-full my-4 mx-3 p-4 rounded-lg border border-gray-300`};
   ${({ center }) => center && tw`items-center items-center`};
 `;
 
@@ -15,7 +18,14 @@ export const Icon = styled.span`
 `;
 
 export const Wrapper = styled.div<StyledProps>`
+  ${tw`p-2 m-2`}
+  background-color: transparent;
+  opacity: 0.7;
   ${({ center }) => center && tw`text-center`};
+  &:hover {
+    background-color: white;
+    opacity: 0.6;
+  }
 `;
 
 export const Title = styled.h3`

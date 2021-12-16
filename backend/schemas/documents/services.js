@@ -23,5 +23,10 @@ export default {
       name: "service_link",
       type: "string",
     },
+    {
+      title: "Service Background Image",
+      name: "service_bg_image",
+      type: "image",
+    },
   ],
 };

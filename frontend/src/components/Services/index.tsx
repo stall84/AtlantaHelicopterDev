@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { SectionTitle } from 'helpers/definitions';
 
 import * as Styled from './styles';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 interface Service {
   node: {
@@ -28,6 +29,12 @@ interface SanityService {
     service_name: string;
     service_icon: IconProps;
     service_link: string;
+    service_bg_image: {
+      asset: {
+        url: string;
+        gatsbyImageData: IGatsbyImageData;
+      }
+    }
   }
 }
 
@@ -61,6 +68,12 @@ const Services: React.FC = () => {
             service_icon
             service_name
             service_link
+            service_bg_image {
+              asset {
+                url
+                gatsbyImageData
+              }
+            }
           }
         }
       }
@@ -82,13 +95,14 @@ const Services: React.FC = () => {
             service_description,
             service_icon,
             service_link,
-            service_name
+            service_name,
+            service_bg_image
           } = item.node;
 
           return (
             <Styled.ServiceItem key={id}>
               <motion.div whileHover={{ scale: 1.10 }} whileTap={{ scale: 1.05 }} style={{ height: '100%', width: '100%' }} >
-                <InfoBlock linkTo={service_link} icon={service_icon} title={service_name} content={service_description} />
+                <InfoBlock linkTo={service_link} icon={service_icon} title={service_name} content={service_description} bgImage={service_bg_image.asset.url} />
               </motion.div>
             </Styled.ServiceItem>
           );
