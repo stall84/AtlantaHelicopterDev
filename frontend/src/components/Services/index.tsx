@@ -101,7 +101,7 @@ const Services: React.FC = () => {
 
           return (
             <Styled.ServiceItem key={id}>
-              <motion.div whileHover={{ scale: 1.10 }} whileTap={{ scale: 1.05 }} style={{ height: '100%', width: '100%' }} >
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 1.07 }} style={{ height: '100%', width: '100%' }} >
                 <InfoBlock linkTo={service_link} icon={service_icon} title={service_name} content={service_description} bgImage={service_bg_image.asset.url} />
               </motion.div>
             </Styled.ServiceItem>
