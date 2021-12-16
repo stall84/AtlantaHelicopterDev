@@ -43,7 +43,7 @@ const Banner: React.FC<SectionBannerProps> = ({ title, subtitle, content, linkTo
         <Link to={linkTo}>
           <Button>{linkText}</Button>
         </Link>
-        <div
+        {/* <div
 
           onMouseEnter={(e) => e && setisShown(true)}
           onMouseLeave={(e) => e && modalFader()}
@@ -56,13 +56,10 @@ const Banner: React.FC<SectionBannerProps> = ({ title, subtitle, content, linkTo
               Preview
             </Button>
           </Styled.ButtonDiv>
-          {/* {
-            isShown && <div style={GridStyles} > <p style={{ gridColumn: '1 / 4', backgroundColor: 'orange', height: '100px' }}> BUTTON  </p>  <p style={{ height: '150px', width: '150px' }}>1</p> <p style={{ height: '150px', width: '150px' }}>2</p> <p style={{ height: '150px', width: '150px' }}>3</p></div>
-          } */}
           {
             isShown && <TourModal />
           }
-        </div>
+        </div> */}
       </Container>
     </Styled.Banner>
   );
