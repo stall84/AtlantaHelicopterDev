@@ -7,6 +7,10 @@ interface MainNavItem {
   slug: string;
 }
 
+interface MainNavProps {
+  scrolled: boolean;
+}
+
 const mainNavItems: MainNavItem[] = [
   {
     title: 'About Us',
@@ -30,18 +34,19 @@ const mainNavItems: MainNavItem[] = [
   }
 ];
 
-const MainNav: React.FC = () => {
+const MainNav: React.FC<MainNavProps> = ({ scrolled }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <Styled.MainNav open={open}>
+      <Styled.MainNav open={open} >
         {mainNavItems.map((item, index) => (
           <Styled.MainNavItem
             key={`nav-item-${index}`}
             to={item.slug}
             activeClassName="active"
             whileTap={{ scale: 0.9 }}
+            scrolled={scrolled}
           >
             {item.title}
           </Styled.MainNavItem>

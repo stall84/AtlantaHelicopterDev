@@ -8,15 +8,10 @@ interface ScrollStyles {
 
 }
 
-// export const Header = styled.header`
-//   ${tw`fixed z-50 bg-transparent px-10`};
-//   transition: all 1.5s, ease-in-out;
-// `;
-
 export const Header = styled.header<ScrollStyles>`
-  ${tw`fixed w-full h-[150px] z-50 bg-transparent `};
+  ${tw`fixed w-full h-initial z-50 bg-transparent `};
   ${({ scrolled }) => scrolled && tw`bg-red h-scrolled`};
-  transition: all 1s ease;
+  transition: all 1.1s ease-in-out;
 `;
 
 export const Wrapper = styled(Container)<ScrollStyles>`

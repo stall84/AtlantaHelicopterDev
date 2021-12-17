@@ -28,8 +28,8 @@ const Header: React.FC<Props> = (props) => {
     // <header className={`header ${scrolling ? `scrolledHeader` : ''}`}>
     <Styled.Header scrolled={scrolling}>
       <Styled.Wrapper scrolled={scrolling}>
-        <Logo scrolling={scrolling} />
-        <MainNav />
+        <Logo scrolled={scrolling} />
+        <MainNav scrolled={scrolling} />
       </Styled.Wrapper>
     </Styled.Header>
     // </header>

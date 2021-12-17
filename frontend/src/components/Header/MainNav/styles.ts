@@ -6,14 +6,18 @@ import { motion } from 'framer-motion';
 interface StyledProps {
   open: boolean;
 }
+interface ScrolledProps {
+  scrolled?: boolean;
+}
 
 export const MainNav = styled.nav<StyledProps>`
   ${tw`lg:flex flex-col lg:flex-row lg:w-auto w-full order-last lg:order-none my-4 lg:my-0 hidden`};
   ${({ open }) => open && tw`flex`};
 `;
 
-export const MainNavItem = motion.custom(styled(Link)`
-  ${tw`relative text-black sm:text-lg border-b border-transparent hover:text-lightRed ml-0 sm:ml-8 mt-3 sm:mt-0`};
+export const MainNavItem = motion.custom(styled(Link)<ScrolledProps>`
+  ${tw`relative text-black sm:text-lg border-b border-transparent hover:text-red ml-0 sm:ml-8 mt-3 sm:mt-0`};
+  ${({ scrolled }) => scrolled && tw`hover:text-white`};
   font-family: "GoodTimes", monospace;
   width: max-content;
 

@@ -17,6 +17,7 @@ module.exports = {
       height: {
         card: '400px',
         mobile: '4rem',
+        initial: '150px',
         scrolled: '55px',
         mobHeader: '6.5rem',
         mainHeader: '8.85rem'
