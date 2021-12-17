@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        red: 'rgb(213,37,37)',
+        red: 'rgba(213,37,37,100)',
         lightRed: 'rgb(200,90,87)',
         darkRed: '#941a1a',
         black: '#1f1f1f',
@@ -17,6 +17,7 @@ module.exports = {
       height: {
         card: '400px',
         mobile: '4rem',
+        scrolled: '55px',
         mobHeader: '6.5rem',
         mainHeader: '8.85rem'
       },
