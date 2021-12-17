@@ -8,9 +8,11 @@ export interface StyledProps {
 }
 
 export const InfoBlock = styled.div<StyledProps>`
-  ${({ bgImage }) => bgImage && `background-image: url(${bgImage}); background-position: center; background-size: cover; filter: brightness(.7);`}
-  ${tw`flex flex-col justify-center sm:min-h-full my-4 mx-3 p-4 rounded-lg border border-gray-300`};
-  ${({ center }) => center && tw`items-center items-center`};
+  height: 100%;
+  width: 100%;
+  ${({ bgImage }) => bgImage && `background-image: url(${bgImage}?auto=format&fm=webp); background-position: center; background-size: cover; filter: brightness(.73);`}
+  ${tw`flex flex-col shadow-xl justify-center p-4 rounded-lg border border-gray-300`};
+  
   &:hover {
     filter: none;
   }
@@ -22,11 +24,12 @@ export const Icon = styled.span`
 `;
 
 export const Wrapper = styled.div<StyledProps>`
+  height: 100%;
   ${tw`p-2 m-2`}
   background-color: transparent;
   opacity: 0.75;
   ${({ center }) => center && tw`text-center`};
-  &:hover {
+  &:hover { 
     background-color: white;
     opacity: 0.80;
     border: 1px solid black;
