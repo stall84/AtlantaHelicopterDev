@@ -13,9 +13,10 @@ export const Header = styled.header`
   transition: all 1.5s, ease-in-out;
 `;
 
+/**@todo REFACTOR - UTILIZE OR REMOVE THE SCROLLED FUNCTION IN WRAPPER BELOW */
+
 export const Wrapper = styled(Container)<ScrollStyles>`
   ${tw`min-h-full items-center justify-around`};
-  ${ ({scrolled}) => scrolled && `margin-left: 0rem;`}
-  
+  ${ ({scrolled}) => scrolled && `margin-left: 0rem;`}    
 `;
 

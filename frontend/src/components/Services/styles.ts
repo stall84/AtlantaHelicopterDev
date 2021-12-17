@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 import tw from 'tailwind.macro';
 
-export const Services = styled.div`
-  ${tw`flex flex-wrap justify-center mx-3`};
+export const Services = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1em;
+  ${tw`m-1 p-1`};
 `;
 
 export const ServiceItem = styled.div`
-  ${tw`w-full sm:w-1/2 p-1 my-1`};
+  ${tw`items-center p-1 m-1`};
 `;
