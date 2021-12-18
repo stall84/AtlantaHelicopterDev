@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Container from 'components/ui/Container';
 import TitleSection from 'components/ui/TitleSection';
 import TourCard from 'components/ui/TourCard';
-
+import { motion } from 'framer-motion';
 
 
 import * as Styled from './styles';
@@ -75,7 +75,9 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
               } = tour.node;
               return (
                 <Styled.TourInfoItem key={id}  >
-                  <TourCard id={id} name={name} description={description} price={price} photoLink={photoLink} />
+                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 1.03 }} style={{ height: '100%', width: '100%' }} >
+                    <TourCard id={id} name={name} description={description} price={price} photoLink={photoLink} />
+                  </motion.div>
                 </Styled.TourInfoItem>
               );
             })
