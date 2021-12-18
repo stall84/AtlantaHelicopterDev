@@ -24,17 +24,8 @@ export const Icon = styled.span`
 `;
 
 export const Wrapper = styled.div<StyledProps>`
-  height: 100%;
-  ${tw`p-2 m-2`}
-  background-color: transparent;
-  opacity: 0.75;
-  ${({ center }) => center && tw`text-center`};
-  &:hover { 
-    background-color: white;
-    opacity: 0.80;
-    border: 1px solid black;
-    border-radius: 10px;
-  }
+  ${tw`p-2 m-2 h-full bg-transparent opacity-75`}
+  ${tw`hover:bg-white hover:opacity-80 hover:border hover:border-red hover:rounded-lg`}
 `;
 
 export const Title = styled.h3`
