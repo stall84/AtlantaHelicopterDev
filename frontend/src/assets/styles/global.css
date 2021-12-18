@@ -81,39 +81,16 @@
 }
 
 /* Styles */
-.logoShrunk {
-  display: none;
-}
 
 .heroBanner {
   height: 100vh;
 }
 
-.header {
-  position: fixed;
-  height: 150px;
-  width: 100%;
-  z-index: 9998;
-  background-color: transparent;
-  transition: all 1s ease;
-}
-
-.scrolledHeader {
-  position: fixed;
-  width: 100%;
-  background-color: rgba(213, 37, 37, 100);
-  height: 55px;
-}
-
-.scrolledHeadWrapper {
+/* .scrolledHeadWrapper {
   margin-left: 0rem;
-}
+} */
 
-.transparent {
-  background-color: transparent;
-}
-
-@media screen and (max-width: 415px) {
+/* @media screen and (max-width: 415px) {
   .logoSpacing {
     width: 140px;
   }
@@ -134,4 +111,4 @@
   .transparent {
     display: none;
   }
-}
+} */

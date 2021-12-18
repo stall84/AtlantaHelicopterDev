@@ -8,15 +8,16 @@ interface ScrollStyles {
 
 }
 
-export const Header = styled.header`
-  ${tw`fixed z-50 bg-transparent px-10`};
-  transition: all 1.5s, ease-in-out;
+export const Header = styled.header<ScrollStyles>`
+  ${tw`fixed w-full h-initial z-50 bg-transparent `};
+  ${({ scrolled }) => scrolled && tw`bg-red h-scrolled`};
+  transition: all 1.1s ease-in-out;
+  @media screen and (max-width: 425px) {
+    ${tw`static bg-red h-12`};
+  }
 `;
 
-/**@todo REFACTOR - UTILIZE OR REMOVE THE SCROLLED FUNCTION IN WRAPPER BELOW */
-
 export const Wrapper = styled(Container)<ScrollStyles>`
-  ${tw`min-h-full items-center justify-around`};
-  ${ ({scrolled}) => scrolled && `margin-left: 0rem;`}    
+  ${tw`min-h-full items-start lg:items-center justify-around`};
 `;
 

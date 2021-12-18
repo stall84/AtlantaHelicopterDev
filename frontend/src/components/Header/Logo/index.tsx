@@ -5,13 +5,11 @@ import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
 import * as Styled from './styles';
 
 interface LogoProps {
-
-  scrolling: boolean;
-
+  scrolled: boolean;
 }
 
 
-const Logo: React.FC<LogoProps> = ({ scrolling }) => {
+const Logo: React.FC<LogoProps> = ({ scrolled }) => {
   const { site } = useStaticQuery(graphql`{
   site {
     siteMetadata {
@@ -31,12 +29,12 @@ const Logo: React.FC<LogoProps> = ({ scrolling }) => {
 
   return (
     <Styled.Logo to="/">
-      <Styled.Image className={`${scrolling ? `logoShrunk` : ''}`}>
+      <Styled.Image scrolled={scrolled}>
         <StaticImage src="../../../assets/images/atl_heli_logo_1.png" alt="Atlanta Helicopters Logo" placeholder="blurred" width={150} layout="constrained" />
       </Styled.Image>
-      {
-        scrolling && <Styled.Text>{siteTitle}</Styled.Text>
-      }
+
+      <Styled.Text scrolled={scrolled}>{siteTitle}</Styled.Text>
+
     </Styled.Logo>
   );
 };

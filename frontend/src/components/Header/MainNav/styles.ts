@@ -6,14 +6,18 @@ import { motion } from 'framer-motion';
 interface StyledProps {
   open: boolean;
 }
+interface ScrolledProps {
+  scrolled?: boolean;
+}
 
 export const MainNav = styled.nav<StyledProps>`
-  ${tw`lg:flex flex-col lg:flex-row lg:w-auto w-full order-last lg:order-none my-4 lg:my-0 hidden`};
-  ${({ open }) => open && tw`flex`};
+  ${tw`lg:flex flex-col lg:flex-row lg:w-auto w-full order-last lg:order-none hidden`};
+  ${({ open }) => open && tw`flex mt-3`};
 `;
 
-export const MainNavItem = motion.custom(styled(Link)`
-  ${tw`relative text-black sm:text-lg border-b border-transparent hover:text-lightRed ml-0 sm:ml-8 mt-3 sm:mt-0`};
+export const MainNavItem = motion.custom(styled(Link)<ScrolledProps>`
+  ${tw`relative text-black sm:text-lg border-b border-white md:border-transparent hover:text-red ml-0 sm:ml-8 mt-3 sm:mt-0`};
+  ${({ scrolled }) => scrolled && tw`hover:text-white`};
   font-family: "GoodTimes", monospace;
   width: max-content;
 
@@ -36,11 +40,11 @@ export const MainNavItem = motion.custom(styled(Link)`
 `);
 
 export const ToogleMainNav = styled.button<StyledProps>`
-  ${tw`flex flex-col items-end justify-center cursor-pointer w-6 h-5 lg:hidden`};
+  ${tw`flex flex-col mt-1 items-end justify-center cursor-pointer w-6 h-5 lg:hidden`};
   outline: none !important;
 
   span {
-    ${tw`bg-black inline-block w-6 h-px`};
+    ${tw`bg-white inline-block w-8 h-1`};
     transition: 0.2s;
 
     &:first-child {
@@ -54,7 +58,7 @@ export const ToogleMainNav = styled.button<StyledProps>`
     }
 
     &:nth-child(2) {
-      ${tw`bg-red inline-block w-8 h-px`};
+      ${tw`bg-black inline-block w-8 h-1`};
 
       ${({ open }) => (open ? tw`opacity-0` : tw`opacity-1`)};
       transform: ${({ open }) => (open ? 'translate(20px)' : 'none')};
