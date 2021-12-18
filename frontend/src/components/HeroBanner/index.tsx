@@ -154,11 +154,9 @@ const HeroBanner: React.FC = () => {
   const sanityBanner_3 = banner3;
   return (
 
-
     <>
-
       <BackgroundImage
-        Tag='section'
+        // Tag='section'
         {...gifBackground1}
         preserveStackingContext
         className="heroBanner"
@@ -171,7 +169,6 @@ const HeroBanner: React.FC = () => {
         />
       </BackgroundImage>
     </>
-
 
   );
 };

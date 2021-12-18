@@ -32,9 +32,9 @@ const Logo: React.FC<LogoProps> = ({ scrolled }) => {
       <Styled.Image scrolled={scrolled}>
         <StaticImage src="../../../assets/images/atl_heli_logo_1.png" alt="Atlanta Helicopters Logo" placeholder="blurred" width={150} layout="constrained" />
       </Styled.Image>
-      {
-        scrolled && <Styled.Text>{siteTitle}</Styled.Text>
-      }
+
+      <Styled.Text scrolled={scrolled}>{siteTitle}</Styled.Text>
+
     </Styled.Logo>
   );
 };
