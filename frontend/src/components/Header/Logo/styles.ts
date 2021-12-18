@@ -18,6 +18,7 @@ export const Text = styled.h1<LogoStyles>`
   @media screen and (max-width: 425px) {
     display: flex;
     color: white;
+    margin-top: 3px;
   }
 `;
 

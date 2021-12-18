@@ -18,6 +18,6 @@ export const Header = styled.header<ScrollStyles>`
 `;
 
 export const Wrapper = styled(Container)<ScrollStyles>`
-  ${tw`min-h-full items-center justify-around`};
+  ${tw`min-h-full items-start lg:items-center justify-around`};
 `;
 

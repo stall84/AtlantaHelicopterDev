@@ -11,9 +11,8 @@ interface ScrolledProps {
 }
 
 export const MainNav = styled.nav<StyledProps>`
-  ${tw`lg:flex flex-col lg:flex-row lg:w-auto w-full order-last lg:order-none my-4 lg:my-0 hidden`};
-  ${({ open }) => open && tw`flex`};
-  mix-blend-mode: normal;
+  ${tw`lg:flex flex-col lg:flex-row lg:w-auto w-full order-last lg:order-none hidden`};
+  ${({ open }) => open && tw`flex mt-3`};
 `;
 
 export const MainNavItem = motion.custom(styled(Link)<ScrolledProps>`
