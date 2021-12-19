@@ -4,7 +4,7 @@ import tw from 'tailwind.macro';
 export const TourGrid = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1.6fr 1.6fr 1.6fr;
   grid-gap: 1rem;
 
   @media screen and (max-width: 425px) {
