@@ -8,13 +8,12 @@ export interface StyledProps {
 }
 
 export const TourCard = styled.div<StyledProps>`
-  ${({ photoLink }) => photoLink && `height: 400px; background-image: url(${process.env.GATSBY_IMG_TEST}${photoLink}_723x542.jpg); background-position: center; background-size: cover; filter: brightness(.72)`};
+  ${({ photoLink }) => photoLink && `height: 450px; background-image: url(${process.env.GATSBY_IMG_TEST}${photoLink}_723x542.jpg); background-position: center; background-size: cover; filter: brightness(.72)`};
   ${tw`flex flex-col shadow-xl justify-center p-4 rounded-lg border border-gray-300`};
   &:hover {
     filter: none;
   }
   transition: filter 280ms ease-out;
- 
 `;
 
 export const Icon = styled.span`
@@ -22,8 +21,12 @@ export const Icon = styled.span`
 `;
 
 export const Wrapper = styled.div<StyledProps>`
-  ${tw`p-2 m-2 h-full bg-transparent opacity-75`}
-  ${tw`hover:bg-white hover:opacity-80 hover:border hover:border-red hover:rounded-lg`}
+  ${tw`flex flex-col justify-between p-2 m-2 h-full bg-transparent opacity-82`}
+  ${tw`hover:bg-white hover:opacity-80 hover:border hover:border-red`}
+`;
+
+export const DescriptionWrapper = styled.div`
+  ${tw`flex flex-col p-1 overflow-auto`}
 `;
 
 export const PriceLink = styled.div<StyledProps>`
@@ -33,22 +36,22 @@ export const PriceLink = styled.div<StyledProps>`
 export const Title = styled.h3`
   ${tw`sm:text-xl text-red mt-1 font-semibold text-center`};
   font-family: 'GoodTimes', monospace;
-  text-shadow: 1px 1px 1px white;
+  text-shadow: 1px 1px 1px black;
 `;
 
 export const Content = styled.p`
-  ${tw`mt-1 text-black text-center`};
+  ${tw`mt-1 text-ellipsis text-black text-center`};
 `;
 
 export const Link = styled.a<StyledProps>`
-  ${tw`flex flex-col my-1 mx-1 p-2 rounded-lg`};
+  ${tw`flex flex-col p-1 rounded-lg`};
   ${({ center }) => center && tw`items-center items-center`};
   Button {
-    ${tw`text-red hover:text-black hover:bg-lightRed`}
+    ${tw`border-black text-red hover:text-black hover:bg-lightRed`}
   }
 `
 export const priceDiv = styled.div`
-  ${tw`mb-3 p-2 border border-black rounded-md`}
+  ${tw`p-1`}
 `
 export const h3 = styled.h3`
   ${tw`text-lightRed text-xl font-semibold hover:text-red`}
