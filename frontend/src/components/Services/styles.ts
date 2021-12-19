@@ -7,6 +7,12 @@ export const Services = styled.section`
   grid-template-rows: 1fr 1fr;
   grid-gap: 1em;
   ${tw`m-1 p-1`};
+
+  @media screen and (max-width: 425px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const ServiceItem = styled.div`
