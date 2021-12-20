@@ -3,7 +3,8 @@ import tw from 'tailwind.macro';
 
 
 export const InstructionCard = styled.div`
-    ${tw`flex flex-col my-4 mx-3 p-2 bg-white rounded-lg border border-gray-300 hover:border- hover:bg-offWhite`};
+    ${tw`flex flex-col m-1 p-1 bg-white rounded-lg border border-gray-300`};
+    ${tw`hover:border- hover:bg-offWhite`}
 `;
 
 export const Wrapper = styled.div`
