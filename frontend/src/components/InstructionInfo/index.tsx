@@ -14,6 +14,7 @@ interface SanityFlightInstruction {
         instruction_description: string;
         instruction_photo: {
             asset: {
+                url: string;
                 gatsbyImageData: IGatsbyImageData;
             }
         };
@@ -35,6 +36,7 @@ const InstructionInfo: React.FC = () => {
                         instruction_description
                         instruction_photo {
                             asset {
+                                url
                                 gatsbyImageData(layout: CONSTRAINED)
                             }
                         }
@@ -52,26 +54,29 @@ const InstructionInfo: React.FC = () => {
     return (
         <Container section>
             <TitleSection title="Flight Instruction" subtitle="Rotor and Fixed Wing!" center hero />
-            {
-                flightInstructionList.map((element) => {
-                    const {
-                        instruction_type,
-                        instruction_description,
-                        instruction_photo: {
-                            asset: {
-                                gatsbyImageData
-                            }
-                        },
-                        instruction_booking_link,
-                        instruction_pricing
-                    } = element.node;
-                    return (
-                        <Styled.InstructionInfoItem>
-                            <InstructionCard title={instruction_type} description={instruction_description} photo={gatsbyImageData} pricing={instruction_pricing} />
-                        </Styled.InstructionInfoItem>
-                    )
-                })
-            }
+            <Styled.InstructionGrid>
+                {
+                    flightInstructionList.map((element) => {
+                        const {
+                            instruction_type,
+                            instruction_description,
+                            instruction_photo: {
+                                asset: {
+                                    url,
+                                    gatsbyImageData
+                                }
+                            },
+                            instruction_booking_link,
+                            instruction_pricing
+                        } = element.node;
+                        return (
+                            <Styled.InstructionInfoItem>
+                                <InstructionCard title={instruction_type} description={instruction_description} photo={gatsbyImageData} url={url} pricing={instruction_pricing} />
+                            </Styled.InstructionInfoItem>
+                        )
+                    })
+                }
+            </Styled.InstructionGrid>
         </Container>
     )
 }

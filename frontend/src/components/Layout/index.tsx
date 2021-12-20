@@ -33,7 +33,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     <>
       <GlobalStyles />
       <AnimatePresence exitBeforeEnter>
-        <Styled.Layout style={{ backgroundColor: `${layoutBg}` }}>
+        <Styled.Layout >
           <Styled.HeadWrapper>
             <Header siteTitle={data.site.siteMetadata.title} />
           </Styled.HeadWrapper>
