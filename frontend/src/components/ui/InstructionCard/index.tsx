@@ -46,9 +46,9 @@ const InstructionCard: React.FC<Props> = ({
                     {description}
                 </Styled.Content>
                 <Link to={'/contact'}>
-                    <Button>
+                    <Styled.InstructionButton>
                         Click to Contact Us!
-                    </Button>
+                    </Styled.InstructionButton>
                 </Link>
             </Styled.Wrapper>
         </Styled.Wrapper>
