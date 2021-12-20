@@ -14,6 +14,7 @@ interface SanityFlightInstruction {
         instruction_description: string;
         instruction_photo: {
             asset: {
+                url: string;
                 gatsbyImageData: IGatsbyImageData;
             }
         };
@@ -35,6 +36,7 @@ const InstructionInfo: React.FC = () => {
                         instruction_description
                         instruction_photo {
                             asset {
+                                url
                                 gatsbyImageData(layout: CONSTRAINED)
                             }
                         }
@@ -60,6 +62,7 @@ const InstructionInfo: React.FC = () => {
                             instruction_description,
                             instruction_photo: {
                                 asset: {
+                                    url,
                                     gatsbyImageData
                                 }
                             },
@@ -68,7 +71,7 @@ const InstructionInfo: React.FC = () => {
                         } = element.node;
                         return (
                             <Styled.InstructionInfoItem>
-                                <InstructionCard title={instruction_type} description={instruction_description} photo={gatsbyImageData} pricing={instruction_pricing} />
+                                <InstructionCard title={instruction_type} description={instruction_description} photo={gatsbyImageData} url={url} pricing={instruction_pricing} />
                             </Styled.InstructionInfoItem>
                         )
                     })

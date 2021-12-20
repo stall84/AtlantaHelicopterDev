@@ -40,5 +40,5 @@ export const InstructionGrid = styled.section`
 `;
 
 export const InstructionInfoItem = styled.div`
-  ${tw`w-full sm:w-auto`};
+  ${tw`w-full h-full sm:w-auto shadow-xl`};
 `;

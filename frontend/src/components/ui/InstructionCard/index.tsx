@@ -23,6 +23,7 @@ interface SanityInstruction {
 interface Props {
     title: string;
     photo: IGatsbyImageData;
+    url?: string;
     linkTo?: string;
     description: string;
     pricing: string;
@@ -31,26 +32,27 @@ interface Props {
 const InstructionCard: React.FC<Props> = ({
     title,
     photo,
+    url,
     linkTo,
     description,
     pricing
 }) => (
-    <Styled.InstructionCard>
+    <Styled.InstructionCard url={url}>
         <Styled.Wrapper>
             <Styled.Title>
                 {title}
             </Styled.Title>
-            <GatsbyImage image={photo} alt={title} />
-            <Styled.Wrapper>
-                <Styled.Content>
-                    {description}
-                </Styled.Content>
-                <Link to={'/contact'}>
-                    <Styled.InstructionButton>
-                        Click to Contact Us!
-                    </Styled.InstructionButton>
-                </Link>
-            </Styled.Wrapper>
+            {/* <GatsbyImage image={photo} alt={title} /> */}
+            {/* <Styled.Wrapper> */}
+            <Styled.Content>
+                {description}
+            </Styled.Content>
+            <Link to={'/contact'}>
+                <Styled.InstructionButton>
+                    Click to Contact Us!
+                </Styled.InstructionButton>
+            </Link>
+            {/* </Styled.Wrapper> */}
         </Styled.Wrapper>
     </Styled.InstructionCard>
 
