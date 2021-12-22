@@ -28,5 +28,12 @@ export default {
       name: "instruction_pricing",
       type: "string",
     },
+    {
+      title: "Instruction Web Ordering",
+      name: "instruction_order",
+      desciption:
+        "This should never change, this is used by the front-end during gatsby-build to position the instruction cards instead of randomly displaying them",
+      type: "string",
+    },
   ],
 };
