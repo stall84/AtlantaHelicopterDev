@@ -97,21 +97,23 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
     const resultData = await result.json();
     console.log('RESULT DATA:  ', resultData);
     resultData.data.forEach((item) => {
-      createNode({
-        parent: null,
-        children: [],
-        internal: {
-          type: item.object,
-          contentDigest: createContentDigest(resultData)
-        },
-        id: item.id,
-        name: item.name,
-        description: item.desc,
-        duration: item.duration,
-        price: item.price,
-        priceType: item.priceType,
-        photoLink: item.photo.id
-      });
+      item.visible
+        ? createNode({
+            parent: null,
+            children: [],
+            internal: {
+              type: item.object,
+              contentDigest: createContentDigest(resultData)
+            },
+            id: item.id,
+            name: item.name,
+            description: item.desc,
+            duration: item.duration,
+            price: item.price,
+            priceType: item.priceType,
+            photoLink: item.photo.id
+          })
+        : console.log('Item skipped.. ');
     });
   } catch (error) {
     console.warn('Error retrieving Xola at build time:  ', error);

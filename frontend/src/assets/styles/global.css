@@ -85,30 +85,3 @@
 .heroBanner {
   height: 100vh;
 }
-
-/* .scrolledHeadWrapper {
-  margin-left: 0rem;
-} */
-
-/* @media screen and (max-width: 415px) {
-  .logoSpacing {
-    width: 140px;
-  }
-
-  .header {
-    position: static;
-  }
-
-  .scrolledHeader {
-    position: fixed;
-    margin: auto;
-  }
-
-  .heroBanner {
-    height: 40vh;
-  }
-
-  .transparent {
-    display: none;
-  }
-} */
