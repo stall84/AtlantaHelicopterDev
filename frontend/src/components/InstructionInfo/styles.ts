@@ -9,7 +9,13 @@ export const InstructionGrid = styled.section`
   grid-template-rows: auto;
   grid-gap: 1em;
   
-  div:nth-child(1) {
+  /* div:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  } */
+  .discovery {
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row-start: 1;
@@ -40,5 +46,5 @@ export const InstructionGrid = styled.section`
 `;
 
 export const InstructionInfoItem = styled.div`
-  ${tw`w-full h-full sm:w-auto shadow-xl`};
+  ${tw`w-full h-full shadow-xl`};
 `;
