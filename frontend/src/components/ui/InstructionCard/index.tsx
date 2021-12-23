@@ -27,6 +27,8 @@ interface Props {
     linkTo?: string;
     description: string;
     pricing: string;
+    right?: boolean;
+    className?: string;
 }
 
 const InstructionCard: React.FC<Props> = ({
@@ -35,10 +37,12 @@ const InstructionCard: React.FC<Props> = ({
     url,
     linkTo,
     description,
-    pricing
+    pricing,
+    right,
+    className
 }) => (
-    <Styled.InstructionCard url={url}>
-        <Styled.Wrapper>
+    <Styled.InstructionCard url={url} right={right} className={className} >
+        <Styled.Wrapper right={right}>
             <Styled.Title>
                 {title}
             </Styled.Title>
@@ -47,7 +51,7 @@ const InstructionCard: React.FC<Props> = ({
             <Styled.Content>
                 {description}
             </Styled.Content>
-            <Link to={'/contact'}>
+            <Link to={linkTo ? linkTo : '/contact'}>
                 <Styled.InstructionButton>
                     Click to Contact Us!
                 </Styled.InstructionButton>

@@ -26,9 +26,48 @@ interface SanityFlightInstruction {
 
 const InstructionInfo: React.FC = () => {
 
-    const { allSanityFlightInstruction } = useStaticQuery(graphql`
+    const { allSanityFlightInstruction, discoveryFlight, privateCertificate, commercialCertificate } = useStaticQuery(graphql`
         query {
-            allSanityFlightInstruction {
+            discoveryFlight: sanityFlightInstruction(instruction_order: {eq: "discovery_flight"}){
+                id
+                instruction_type
+                instruction_description
+                instruction_photo {
+                    asset {
+                        url
+                        gatsbyImageData(layout: CONSTRAINED)
+                    }
+                }
+                instruction_booking_link
+                instruction_pricing
+            }
+            privateCertificate: sanityFlightInstruction(instruction_order: {eq: "private_certificate"}){
+                id
+                instruction_type
+                instruction_description
+                instruction_photo {
+                    asset {
+                        url
+                        gatsbyImageData(layout: CONSTRAINED)
+                    }
+                }
+                instruction_booking_link
+                instruction_pricing
+            }
+            commercialCertificate: sanityFlightInstruction(instruction_order: {eq: "commercial_certificate"}){
+                id
+                instruction_type
+                instruction_description
+                instruction_photo {
+                    asset {
+                        url
+                        gatsbyImageData(layout: CONSTRAINED)
+                    }
+                }
+                instruction_booking_link
+                instruction_pricing
+            }
+            allSanityFlightInstruction: allSanityFlightInstruction {
                 edges {
                     node {
                         id
@@ -49,13 +88,23 @@ const InstructionInfo: React.FC = () => {
     `)
 
     const flightInstructionList: SanityFlightInstruction[] = allSanityFlightInstruction.edges;
+    console.log('single private_cert : ', privateCertificate)
     console.log('flightInstructionList: ', flightInstructionList)
 
     return (
         <Container section>
             <TitleSection title="Flight Instruction" subtitle="Rotor and Fixed Wing!" center hero />
             <Styled.InstructionGrid>
-                {
+                <Styled.InstructionInfoItem className="discovery">
+                    <InstructionCard right className="discovery" linkTo="/tours/#61bf4407fc5a3b0d13453a25" title={discoveryFlight.instruction_type} description={discoveryFlight.instruction_description} url={discoveryFlight.instruction_photo.asset.url} photo={discoveryFlight.instruction_photo.asset.gatsbyImageData} pricing={discoveryFlight.instruction_pricing} />
+                </Styled.InstructionInfoItem>
+                <Styled.InstructionInfoItem>
+                    <InstructionCard title={privateCertificate.instruction_type} description={privateCertificate.instruction_description} url={privateCertificate.instruction_photo.asset.url} photo={privateCertificate.instruction_photo.asset.gatsbyImageData} pricing={privateCertificate.instruction_pricing} />
+                </Styled.InstructionInfoItem>
+                <Styled.InstructionInfoItem>
+                    <InstructionCard title={commercialCertificate.instruction_type} description={commercialCertificate.instruction_description} url={commercialCertificate.instruction_photo.asset.url} photo={commercialCertificate.instruction_photo.asset.gatsbyImageData} pricing={commercialCertificate.instruction_pricing} />
+                </Styled.InstructionInfoItem>
+                {/* {
                     flightInstructionList.map((element) => {
                         const {
                             instruction_type,
@@ -75,7 +124,7 @@ const InstructionInfo: React.FC = () => {
                             </Styled.InstructionInfoItem>
                         )
                     })
-                }
+                } */}
             </Styled.InstructionGrid>
         </Container>
     )
