@@ -96,7 +96,7 @@ const InstructionInfo: React.FC = () => {
             <TitleSection title="Flight Instruction" subtitle="Rotor and Fixed Wing!" center hero />
             <Styled.InstructionGrid>
                 <Styled.InstructionInfoItem className="discovery">
-                    <InstructionCard right className="discovery" title={discoveryFlight.instruction_type} description={discoveryFlight.instruction_description} url={discoveryFlight.instruction_photo.asset.url} photo={discoveryFlight.instruction_photo.asset.gatsbyImageData} pricing={discoveryFlight.instruction_pricing} />
+                    <InstructionCard right className="discovery" linkTo="/tours/#61bf4407fc5a3b0d13453a25" title={discoveryFlight.instruction_type} description={discoveryFlight.instruction_description} url={discoveryFlight.instruction_photo.asset.url} photo={discoveryFlight.instruction_photo.asset.gatsbyImageData} pricing={discoveryFlight.instruction_pricing} />
                 </Styled.InstructionInfoItem>
                 <Styled.InstructionInfoItem>
                     <InstructionCard title={privateCertificate.instruction_type} description={privateCertificate.instruction_description} url={privateCertificate.instruction_photo.asset.url} photo={privateCertificate.instruction_photo.asset.gatsbyImageData} pricing={privateCertificate.instruction_pricing} />
