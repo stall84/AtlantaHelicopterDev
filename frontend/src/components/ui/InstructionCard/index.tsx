@@ -46,17 +46,18 @@ const InstructionCard: React.FC<Props> = ({
             <Styled.Title>
                 {title}
             </Styled.Title>
-            {/* <GatsbyImage image={photo} alt={title} /> */}
-            {/* <Styled.Wrapper> */}
-            <Styled.Content>
-                {description}
-            </Styled.Content>
-            <Link to={linkTo ? linkTo : '/contact'}>
+
+            <Styled.TextDiv>
+                <Styled.Content>
+                    {description}
+                </Styled.Content>
+            </Styled.TextDiv>
+            <Styled.Linker to={linkTo ? linkTo : '/contact'}>
                 <Styled.InstructionButton>
-                    Click to Contact Us!
+                    Click to Book or Contact!
                 </Styled.InstructionButton>
-            </Link>
-            {/* </Styled.Wrapper> */}
+            </Styled.Linker>
+
         </Styled.Wrapper>
     </Styled.InstructionCard>
 

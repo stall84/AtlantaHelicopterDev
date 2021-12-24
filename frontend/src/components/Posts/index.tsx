@@ -58,7 +58,7 @@ const Posts: React.FC = () => {
 
   return (
     <Container section>
-      <TitleSection title="Blog" subtitle="All Ma Posts" center />
+      <TitleSection title="Blog" none center />
       <Styled.Posts>
         {posts.map((item) => {
           const {

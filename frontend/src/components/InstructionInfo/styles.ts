@@ -3,37 +3,31 @@ import tw from 'tailwind.macro';
 
 
 export const InstructionGrid = styled.section`
-  ${tw`m-1 p-1`};
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-  grid-gap: 1em;
+  grid-template-rows: repeat(4, 0.5fr);
+  grid-gap: 0.5em;
   
-  /* div:nth-child(1) {
+
+  .discoveryCert {
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row-start: 1;
-    grid-row-end: 2;
-  } */
-  .discovery {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 2;
+    grid-row-end: 3;
   }
 
-  div:nth-child(2) {
+  .privateCert {
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
-    grid-row-end: 4;
+    grid-row-end: 5
   }
 
-  div:nth-child(3) {
+  .commieCert {
     grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 3;
-    grid-row-end: 4;
+    grid-row-end: 5
   }
 
 

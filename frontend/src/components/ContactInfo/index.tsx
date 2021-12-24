@@ -72,7 +72,7 @@ const ConctactInfo: React.FC = () => {
 
   return (
     <Container section>
-      <TitleSection title={sectionTitle.title} subtitle={sectionTitle.subtitle} hero center />
+      <TitleSection title={sectionTitle.title} subtitle={sectionTitle.subtitle} none hero center />
       {sanityContacts.map((item) => {
         const {
           id,
