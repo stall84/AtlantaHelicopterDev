@@ -6,7 +6,7 @@ export const Services = styled.section`
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 1em;
-  ${tw`m-1 p-1`};
+  ${tw`sm:m-1 sm:p-1`};
 
   @media screen and (max-width: 425px) {
     display: flex;

@@ -55,7 +55,7 @@ const TourInfo: React.FC<XolaExperienceArray> = ({ toursArray }) => {
     <>
 
       <Container section>
-        <TitleSection title="Charters and Tours" subtitle="" hero center />
+        <TitleSection title="Charters and Tours" subtitle="" none hero center />
 
         <Styled.h3>
           All tours listed below are priced <strong>per person</strong>. <br />

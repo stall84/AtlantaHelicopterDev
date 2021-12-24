@@ -8,7 +8,7 @@ export interface StyledProps {
 }
 
 export const TourCard = styled.div<StyledProps>`
-  ${({ photoLink }) => photoLink && `height: 450px; background-image: url(${process.env.GATSBY_IMG_TEST}${photoLink}_723x542.jpg); background-position: center; background-size: cover; filter: brightness(.72)`};
+  ${({ photoLink }) => photoLink && `height: 450px; background-image: url(${process.env.GATSBY_IMG_TEST}${photoLink}_723x542.jpg); background-position: center; background-size: cover; filter: brightness(.79)`};
   ${tw`flex flex-col shadow-xl justify-center p-4 rounded-lg border border-gray-300`};
   &:hover {
     filter: none;
@@ -22,7 +22,7 @@ export const Icon = styled.span`
 
 export const Wrapper = styled.div<StyledProps>`
   ${tw`flex flex-col justify-between p-2 m-2 h-full bg-transparent opacity-82`}
-  ${tw`hover:bg-white hover:opacity-80 hover:border hover:border-red`}
+  ${tw` hover:border hover:border-red`}
 `;
 
 export const DescriptionWrapper = styled.div`
