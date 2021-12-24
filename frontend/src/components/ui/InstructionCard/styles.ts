@@ -10,7 +10,7 @@ interface StyleProps {
 
 export const InstructionCard = styled.div<StyleProps>`
   height: 100%;
-  ${({ url }) => url && `background-image: url(${url}); background-position: center; background-size: cover; filter: brightness(.73);`}
+  ${({ url }) => url && `background-image: url(${url}); background-position: bottom; background-size: cover; filter: brightness(.73);`}
   ${tw`flex flex-col m-1 p-1 border rounded-lg border-gray-300`};
   ${tw`hover:border- hover:bg-offWhite`}
   ${({ right }) => right && tw`flex-row justify-end items-center`}

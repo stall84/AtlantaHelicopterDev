@@ -95,14 +95,14 @@ const InstructionInfo: React.FC = () => {
         <Container section>
             <TitleSection title="Flight Instruction" subtitle="Rotor and Fixed Wing!" center hero />
             <Styled.InstructionGrid>
-                <Styled.InstructionInfoItem className="discovery">
-                    <InstructionCard right className="discovery" linkTo={`https://checkout.xola.com/index.html#seller/${process.env.GATSBY_XOLA_SELLER_ID}/experiences/61bf4407fc5a3b0d13453a25?openExternal=true`} title={discoveryFlight.instruction_type} description={discoveryFlight.instruction_description} url={discoveryFlight.instruction_photo.asset.url} photo={discoveryFlight.instruction_photo.asset.gatsbyImageData} pricing={discoveryFlight.instruction_pricing} />
+                <Styled.InstructionInfoItem className="discoveryCert">
+                    <InstructionCard right className="discoveryCert" linkTo={`https://checkout.xola.com/index.html#seller/${process.env.GATSBY_XOLA_SELLER_ID}/experiences/61bf4407fc5a3b0d13453a25?openExternal=true`} title={discoveryFlight.instruction_type} description={discoveryFlight.instruction_description} url={discoveryFlight.instruction_photo.asset.url} photo={discoveryFlight.instruction_photo.asset.gatsbyImageData} pricing={discoveryFlight.instruction_pricing} />
                 </Styled.InstructionInfoItem>
-                <Styled.InstructionInfoItem>
-                    <InstructionCard title={privateCertificate.instruction_type} description={privateCertificate.instruction_description} url={privateCertificate.instruction_photo.asset.url} photo={privateCertificate.instruction_photo.asset.gatsbyImageData} pricing={privateCertificate.instruction_pricing} />
+                <Styled.InstructionInfoItem className="privateCert">
+                    <InstructionCard right className="privateCert" title={privateCertificate.instruction_type} description={privateCertificate.instruction_description} url={privateCertificate.instruction_photo.asset.url} photo={privateCertificate.instruction_photo.asset.gatsbyImageData} pricing={privateCertificate.instruction_pricing} />
                 </Styled.InstructionInfoItem>
-                <Styled.InstructionInfoItem>
-                    <InstructionCard title={commercialCertificate.instruction_type} description={commercialCertificate.instruction_description} url={commercialCertificate.instruction_photo.asset.url} photo={commercialCertificate.instruction_photo.asset.gatsbyImageData} pricing={commercialCertificate.instruction_pricing} />
+                <Styled.InstructionInfoItem className="commieCert">
+                    <InstructionCard right className="commieCert" title={commercialCertificate.instruction_type} description={commercialCertificate.instruction_description} url={commercialCertificate.instruction_photo.asset.url} photo={commercialCertificate.instruction_photo.asset.gatsbyImageData} pricing={commercialCertificate.instruction_pricing} />
                 </Styled.InstructionInfoItem>
                 {/* {
                     flightInstructionList.map((element) => {
