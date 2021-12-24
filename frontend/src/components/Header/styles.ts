@@ -10,14 +10,14 @@ interface ScrollStyles {
 
 export const Header = styled.header<ScrollStyles>`
   ${tw`fixed w-full h-initial z-50 bg-transparent `};
-  ${({ scrolled }) => scrolled && tw`bg-red h-scrolled`};
-  transition: all 1.1s ease-in-out;
+  ${({ scrolled }) => scrolled && tw`sm:bg-red sm:h-scrolled`};
+  transition: all 0.5s linear;
   @media screen and (max-width: 425px) {
-    ${tw`static bg-red h-12`};
+    ${tw`fixed bg-red h-12`};
   }
 `;
 
 export const Wrapper = styled(Container)<ScrollStyles>`
-  ${tw`min-h-full items-start lg:items-center justify-around`};
+  ${tw`min-h-full mx-auto items-start lg:items-center justify-around`};
 `;
 

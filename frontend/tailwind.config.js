@@ -19,13 +19,16 @@ module.exports = {
         card: '400px',
         responsiveCard: '400px',
         mobile: '4rem',
-        initial: '150px',
-        scrolled: '55px',
+        initial: '120px',
+        scrolled: '80px',
         mobHeader: '6.5rem',
         mainHeader: '8.85rem'
       },
       width: {
         mobile: '8rem'
+      },
+      fontSize: {
+        oneThree: '1.3rem'
       }
     }
   },
