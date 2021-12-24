@@ -93,7 +93,7 @@ const InstructionInfo: React.FC = () => {
 
     return (
         <Container section>
-            <TitleSection title="Flight Instruction" subtitle="Rotor and Fixed Wing!" center hero />
+            <TitleSection title="Flight Instruction" subtitle="Rotor and Fixed Wing! You must start with the Discovery Flight, even if you've logged time, you'll need to get familiar with our equipment and instructors through the Discovery Flight" none center hero />
             <Styled.InstructionGrid>
                 <Styled.InstructionInfoItem className="discoveryCert">
                     <InstructionCard right className="discoveryCert" linkTo={`https://checkout.xola.com/index.html#seller/${process.env.GATSBY_XOLA_SELLER_ID}/experiences/61bf4407fc5a3b0d13453a25?openExternal=true`} title={discoveryFlight.instruction_type} description={discoveryFlight.instruction_description} url={discoveryFlight.instruction_photo.asset.url} photo={discoveryFlight.instruction_photo.asset.gatsbyImageData} pricing={discoveryFlight.instruction_pricing} />

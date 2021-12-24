@@ -3,11 +3,10 @@ import tw from 'tailwind.macro';
 
 
 export const InstructionGrid = styled.section`
-  ${tw`m-1 p-1`};
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 0.5fr);
-  grid-gap: 1em;
+  grid-gap: 0.5em;
   
 
   .discoveryCert {

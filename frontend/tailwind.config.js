@@ -8,6 +8,7 @@ module.exports = {
         darkRed: '#941a1a',
         black: '#1f1f1f',
         offWhite: '#f3f1f0',
+        ghostWhite: '#f8f8ff',
         slate: 'rgb(148,148,148)',
         veryLightGrey: '#e7ebed',
         teal2: '#2ad4d4',
@@ -16,6 +17,7 @@ module.exports = {
       },
       height: {
         card: '400px',
+        responsiveCard: '400px',
         mobile: '4rem',
         initial: '150px',
         scrolled: '55px',
