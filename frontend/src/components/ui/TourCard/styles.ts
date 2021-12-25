@@ -22,7 +22,7 @@ export const Icon = styled.span`
 
 export const Wrapper = styled.div<StyledProps>`
   ${tw`flex flex-col justify-between p-2 m-2 h-full bg-transparent opacity-82`}
-  ${tw` hover:border hover:border-red`}
+  ${tw`hover:bg-white hover:opacity-80 hover:border hover:border-red`}
 `;
 
 export const DescriptionWrapper = styled.div`
