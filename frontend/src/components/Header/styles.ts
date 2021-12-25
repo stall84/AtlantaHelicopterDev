@@ -7,11 +7,11 @@ interface ScrollStyles {
 }
 
 export const Header = styled.header<ScrollStyles>`
-  ${tw`fixed w-full h-initial z-50 bg-transparent `};
+  ${tw`sticky top-0 w-full h-initial z-50 bg-transparent `};
   ${({ scrolled }) => scrolled && tw`sm:bg-red sm:h-scrolled`};
   transition: all 0.5s linear;
   @media screen and (max-width: 425px) {
-    ${tw`fixed bg-red h-12`};
+    ${tw`sticky top-0 bg-red h-12`};
   }
 `;
 

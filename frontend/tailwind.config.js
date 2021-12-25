@@ -22,7 +22,8 @@ module.exports = {
         initial: '120px',
         scrolled: '80px',
         mobHeader: '6.5rem',
-        mainHeader: '8.85rem'
+        mainHeader: '8.85rem',
+        layoutTop: '130px'
       },
       width: {
         mobile: '8rem'

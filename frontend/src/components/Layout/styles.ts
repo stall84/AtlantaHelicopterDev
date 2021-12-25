@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 
 export const MotionLayoutContainer = motion.custom(styled.div`
- 
+  
 `)
 
 export const Layout = styled.main`
