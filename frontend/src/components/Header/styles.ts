@@ -3,9 +3,7 @@ import tw from 'tailwind.macro';
 import { Container } from 'components/ui/Container/styles';
 
 interface ScrollStyles {
-
   scrolled?: boolean;
-
 }
 
 export const Header = styled.header<ScrollStyles>`
