@@ -154,21 +154,21 @@ const HeroBanner: React.FC = () => {
   const sanityBanner_3 = banner3;
   return (
 
-    <>
-      <BackgroundImage
-        // Tag='section'
-        {...gifBackground1}
-        preserveStackingContext
-        className="heroBanner"
-      >
-        <Banner
-          title={sanityBanner_1.big_text}
-          content={sanityBanner_1.small_text}
-          linkTo={sanityBanner_1.button_link}
-          linkText={sanityBanner_1.button_text}
-        />
-      </BackgroundImage>
-    </>
+
+    <BackgroundImage
+      // Tag='section'
+      {...gifBackground1}
+      preserveStackingContext
+      className="heroBanner"
+    >
+      <Banner
+        title={sanityBanner_1.big_text}
+        content={sanityBanner_1.small_text}
+        linkTo={sanityBanner_1.button_link}
+        linkText={sanityBanner_1.button_text}
+      />
+    </BackgroundImage>
+
 
   );
 };

@@ -31,6 +31,10 @@ const mainNavItems: MainNavItem[] = [
   {
     title: 'Contact Us',
     slug: '/contact/'
+  },
+  {
+    title: 'FAQ',
+    slug: '/faq/'
   }
 ];
 
