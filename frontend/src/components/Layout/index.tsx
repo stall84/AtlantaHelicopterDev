@@ -11,6 +11,8 @@ import 'assets/styles/global.css';
 import GlobalStyles from 'assets/styles/globalStyles';
 import * as Styled from './styles';
 
+import Helmet from 'react-helmet';
+
 interface Props {
   children: React.ReactNode;
 }
@@ -32,6 +34,22 @@ const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <GlobalStyles />
+      <Helmet>
+        <script type="text/javascript">
+          {
+            `
+            (function () {
+              var co = document.createElement("script");
+              co.type = "text/javascript";
+              co.async = true;
+              co.src = "https://xola.com/checkout.js";
+              var s = document.getElementsByTagName("script")[0];
+              s.parentNode.insertBefore(co, s);
+            })();
+            `
+          }
+        </script>
+      </Helmet>
       <AnimatePresence exitBeforeEnter>
         <Styled.Layout >
           <Header siteTitle={data.site.siteMetadata.title} />
