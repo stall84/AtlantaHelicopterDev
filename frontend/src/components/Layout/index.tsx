@@ -34,7 +34,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <GlobalStyles />
-      <Helmet>
+      {/* <Helmet>
         <script type="text/javascript">
           {
             `
@@ -49,7 +49,7 @@ const Layout: React.FC<Props> = ({ children }) => {
             `
           }
         </script>
-      </Helmet>
+      </Helmet> */}
       <AnimatePresence exitBeforeEnter>
         <Styled.Layout >
           <Header siteTitle={data.site.siteMetadata.title} />

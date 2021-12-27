@@ -7,27 +7,34 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 import * as Styled from './styles';
 
 
+
 const FaqAffiliate: React.FC = () => {
+
+    const { legalTerms, cancellationPolicy } = useStaticQuery(graphql`{
+        legalTerms {
+            termsLegal
+        }
+        cancellationPolicy: experience(id: {eq: "61c02027290ac16e1217abc7"}) {
+            cancellationPolicy
+        }
+    }`)
+
 
     return (
         <Container section>
-            <div>
-                FAQ - AFFILIATE
-            </div>
-            <div>
-                COMPONENT
-            </div>
-            <hr />
-            <br />
-            <section>
-                <div>
-                    <h2>TESTING XOLA GIFT CARDS</h2>
-                </div>
-                < hr />
-                <div>
-                    <div className="xola-checkout" data-seller="5d2d2aabde7c4b0eb96866bd" data-experience="61bf2e2f636fea37cf02885c" data-version="2">Book Now!</div>
-                </div>
-            </section>
+            <TitleSection title='FAQ and Terms of Service' center />
+            <Styled.Section>
+                <Styled.Paragraph>
+                    <TitleSection title='General Terms of Service' center none />
+                    {legalTerms.termsLegal}
+                </Styled.Paragraph>
+                <Styled.Paragraph>
+                    <TitleSection title='General Cancellation Policy' center none />
+                    {cancellationPolicy.cancellationPolicy}
+                </Styled.Paragraph>
+            </Styled.Section>
+
+
         </Container>
 
     )

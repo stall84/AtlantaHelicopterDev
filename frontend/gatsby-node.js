@@ -95,7 +95,7 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
       }
     });
     const resultData = await result.json();
-    console.log('RESULT DATA:  ', resultData);
+    // console.log('RESULT DATA:  ', resultData);
     resultData.data.forEach((item) => {
       item.visible
         ? createNode({
@@ -111,11 +111,50 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
             duration: item.duration,
             price: item.price,
             priceType: item.priceType,
-            photoLink: item.photo.id
+            photoLink: item.photo.id,
+            cancellationPolicy: item.cancellationPolicy
           })
         : console.log('Item skipped.. ');
     });
   } catch (error) {
     console.warn('Error retrieving Xola at build time:  ', error);
   }
+  try {
+    const result = await fetch(`https://xola.com/api/users/5d2d2aabde7c4b0eb96866bd/terms`, {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-API-VERSION': '2017-06-10',
+        'X-API-KEY': `${process.env.GATSBY_XOLA_SELLER_API_KEY}`
+      }
+    });
+    const resultData = await result.json();
+    // console.log('resultData : ', resultData);
+
+    createNode({
+      parent: null,
+      children: [],
+      internal: {
+        type: 'LegalTerms',
+        contentDigest: createContentDigest(resultData)
+      },
+      id: resultData.id,
+      termsLegal: resultData.termsLegal
+    });
+  } catch (error) {
+    console.warn('Error retrieving Xola at build time:  ', error);
+  }
 };
+
+// const equipmentGetter = async (id) => {
+//   let result = await fetch(`https://xola.com/api/resources/${id}`, {
+//     method: 'GET',
+//     headers: {
+//       Accept: 'application/json',
+//       'X-API-KEY': `${process.env.GATSBY_XOLA_SELLER_API_KEY}`
+//     }
+//   });
+//   let resultData = await result.json();
+//   console.log('resultData  :  ', resultData);
+// };
+
+// equipmentGetter('5d2ddccd44e9362224224fd6');
