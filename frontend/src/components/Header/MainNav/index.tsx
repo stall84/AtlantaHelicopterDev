@@ -17,7 +17,7 @@ const mainNavItems: MainNavItem[] = [
     slug: '/'
   },
   {
-    title: 'Charters & Tours',
+    title: 'Tours & Excursions',
     slug: '/tours/'
   },
   {
