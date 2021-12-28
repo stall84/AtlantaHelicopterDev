@@ -5,6 +5,7 @@
     "serverless-offline": "^8.2.0"
   },
   "devDependencies": {
-    "serverless-plugin-webpack": "^1.5.1"
+    "serverless-webpack": "^5.6.0",
+    "ts-loader": "^9.2.6"
   }
 }

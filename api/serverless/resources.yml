@@ -1,0 +1,22 @@
+Resources:
+  lambdaRole:
+    Type: AWS::IAM:Role
+    Properties:
+      RoleName: atl-heli-lambda-role
+      AssumedRolePolicyDocument:
+        Version: "2010-10-17"
+        Statement:
+          - Effect: Allow
+            Action: sts:AssumeRole
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+      Policies:
+        - PolicyName: lambda-sns-policy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - sns:Publish
+                Resource: "*"

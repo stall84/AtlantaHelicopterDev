@@ -1,0 +1,7 @@
+grabxola:
+  handler: src/lambdas/grabxola.handler
+  events:
+    - httpApi:
+        method: GET
+        path: /get/grabxola
+        cors: true
