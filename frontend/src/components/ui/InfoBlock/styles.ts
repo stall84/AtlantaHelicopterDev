@@ -24,11 +24,16 @@ export const Icon = styled.span`
 `;
 
 export const Wrapper = styled.div<StyledProps>`
-  ${tw`p-2 m-2 h-full bg-transparent opacity-75`}
-  ${tw`hover:bg-white hover:opacity-80 hover:border hover:border-red hover:rounded-lg`}
+  ${tw`p-2 m-2 h-full sm:bg-transparent opacity-75 bg-white`}
+  ${tw`hover:bg-white hover:opacity-90 hover:border hover:border-red hover:rounded-lg`}
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const Title = styled.h3`
+  font-family: 'GoodTimes', monospace;
+  text-shadow: 1px 1px 1px black;
   ${tw`text-md mt-1 text-red font-semibold`};
 `;
 

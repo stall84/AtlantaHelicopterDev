@@ -21,8 +21,11 @@ export const Icon = styled.span`
 `;
 
 export const Wrapper = styled.div<StyledProps>`
-  ${tw`flex flex-col justify-between p-2 m-2 h-full bg-transparent opacity-82`}
+  ${tw`flex flex-col justify-between p-2 m-2 h-full bg-white opacity-80 sm:bg-transparent`}
   ${tw`hover:bg-white hover:opacity-80 hover:border hover:border-red`}
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const DescriptionWrapper = styled.div`
@@ -40,7 +43,7 @@ export const Title = styled.h3`
 `;
 
 export const Content = styled.p`
-  ${tw`mt-1 text-ellipsis text-black text-center`};
+  ${tw`mt-1 text-ellipsis sm:text-lg text-black text-center`};
 `;
 
 export const Link = styled.a<StyledProps>`

@@ -12,12 +12,16 @@ export const TitleSection = styled.div`
 `;
 
 export const Title = styled.h2<StyledProps>`
+  font-family: 'GoodTimes', monospace;
+  text-shadow: 1px 1px 1px black;
   ${tw`uppercase mb-4 text-lg font-bold w-full text-left`};
   ${({ center }) => center && tw`text-center`};
   ${({ hero }) => hero && tw`sm:text-3xl text-black`}
 `;
 
 export const SubTitle = styled.h4<StyledProps>`
+  font-family: 'GoodTimes', monospace;
+  text-shadow: 1px 1px 1px black;
   ${tw`text-xs text-lightRed w-full text-left`};
   ${({ center }) => center && tw`text-center`};
   ${({ hero }) => hero && tw`sm:text-lg text-indigo sm:mb-8`};
