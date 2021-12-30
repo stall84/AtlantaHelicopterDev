@@ -1,10 +1,14 @@
 Resources:
+  testBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: test-deployment-bucket-823923
   lambdaRole:
-    Type: AWS::IAM:Role
+    Type: AWS::IAM::Role
     Properties:
       RoleName: atl-heli-lambda-role
-      AssumedRolePolicyDocument:
-        Version: "2010-10-17"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
         Statement:
           - Effect: Allow
             Action: sts:AssumeRole
@@ -19,4 +23,20 @@ Resources:
               - Effect: Allow
                 Action:
                   - sns:Publish
+                Resource: "*"
+        - PolicyName: loggingPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:*
+                Resource: "*"
+        - PolicyName: emailPolicy
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ses:*
                 Resource: "*"

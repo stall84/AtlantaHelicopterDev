@@ -8,17 +8,17 @@ provider:
   lambdaHashingVersion: 20201221
   stage: ${opt:stage, env:STAGE, 'dev'}
   region: us-east-1
-  deploymentBucket: ${file(serverless/slsConfig.yml)}
+  bucketName: ${self:custom.conf.deploymentBucket}
 
 custom:
-  conf: ${file(serverless/slsConfig.yml)}
+  conf: ${file(./slsConfig.yml)}
 
 plugins:
   - serverless-offline
   - serverless-webpack
 
 functions:
-  - ${file(serverless/lambdas.yml)}
+  - ${file(./serverless/lambdas.yml)}
 
 resources:
-  - ${file(serverless/resources.yml)}
+  - ${file(./serverless/resources.yml)}

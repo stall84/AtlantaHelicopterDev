@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "apollo-server-lambda": "^3.3.0",
+    "aws-sdk": "^2.1048.0",
     "graphql": "^15.6.1",
     "serverless-offline": "^8.2.0"
   },

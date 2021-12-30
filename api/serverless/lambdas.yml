@@ -1,7 +1,9 @@
 grabxola:
   handler: src/lambdas/grabxola.handler
+  description: A test-function to experiment with Xola webhooks.
+  role: lambdaRole
   events:
     - httpApi:
-        method: GET
-        path: /get/grabxola
+        method: POST
+        path: /post/grabxola
         cors: true
