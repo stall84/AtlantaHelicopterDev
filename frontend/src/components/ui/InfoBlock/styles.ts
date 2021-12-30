@@ -24,8 +24,8 @@ export const Icon = styled.span`
 `;
 
 export const Wrapper = styled.div<StyledProps>`
-  ${tw`p-2 m-2 h-full sm:bg-transparent opacity-75 bg-white`}
-  ${tw`hover:bg-white hover:opacity-90 hover:border hover:border-red hover:rounded-lg`}
+  ${tw`p-2 m-2 h-full sm:bg-transparent opacity-90 bg-white`}
+  ${tw`hover:bg-white hover:border hover:border-red hover:rounded-lg`}
   &:hover {
     opacity: 0.9;
   }
