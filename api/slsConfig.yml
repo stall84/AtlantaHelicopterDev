@@ -1,0 +1,7 @@
+stage: ${opt:stage, env:STAGE, 'dev'}
+region: us-east-1
+deploymentBucket: ${self:custom.conf.S3_BUCKET_TEST.${self:custom.conf.stage}}
+
+S3_BUCKET_TEST:
+  default: "test-deployment-bucket-823923"
+  dev: "test-deployment-bucket-823923"

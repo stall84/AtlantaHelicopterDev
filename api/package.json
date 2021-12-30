@@ -1,10 +1,12 @@
 {
   "dependencies": {
     "apollo-server-lambda": "^3.3.0",
+    "aws-sdk": "^2.1048.0",
     "graphql": "^15.6.1",
     "serverless-offline": "^8.2.0"
   },
   "devDependencies": {
-    "serverless-plugin-webpack": "^1.5.1"
+    "serverless-webpack": "^5.6.0",
+    "ts-loader": "^9.2.6"
   }
 }
