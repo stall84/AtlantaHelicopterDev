@@ -19,7 +19,8 @@
     "dashboard-widget-netlify",
     "markdown",
     "@sanity/color-input",
-    "dashboard-widget-gatsby"
+    "dashboard-widget-gatsby",
+    "mux-input"
   ],
   "parts": [
     {

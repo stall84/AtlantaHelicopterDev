@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import Container from 'components/ui/Container';
 import { SectionTitle } from 'helpers/definitions';
@@ -12,6 +12,9 @@ import Carousel from 'components/ui/Carousel';
 import Button from 'components/ui/Button';
 
 import TourModal from '../ui/TourModal';
+import Hls from 'hls.js';
+// import SanityMuxPlayer from 'sanity-mux-player';
+
 
 // interface SectionHeroBanner extends SectionTitle {
 //   content: string;
@@ -70,7 +73,7 @@ const Banner: React.FC<SectionBannerProps> = ({ title, subtitle, content, linkTo
 
 
 const HeroBanner: React.FC = () => {
-  const { markdownRemark, banner1, banner2, banner3, bgImage1, bgImage2, bgImage3, gifBG1 } = useStaticQuery(graphql`
+  const { markdownRemark, banner1, banner2, banner3, bgImage1, bgImage2, bgImage3, gifBG1, muxBg1 } = useStaticQuery(graphql`
     query {
       markdownRemark(frontmatter: { category: { eq: "hero section" } }) {
         frontmatter {
@@ -139,6 +142,17 @@ const HeroBanner: React.FC = () => {
             gatsbyImageData
           }
         }
+      },
+      muxBg1: sanityBgVideos(bvideo_number: {eq: "1"}) {
+        mux_bg_video {
+          asset {
+            status
+            assetId
+            playbackId
+            filename
+            thumbTime
+          }
+        }
       }
     }
   `);
@@ -152,22 +166,74 @@ const HeroBanner: React.FC = () => {
   const sanityBanner_1 = banner1;
   const sanityBanner_2 = banner2;
   const sanityBanner_3 = banner3;
+
+  const videoRef = useRef(null);
+  const src = `https://stream.mux.com/oyV39Hgk62gwJcHDmYL00daAj02vlorYABnfzDmL4mzO4.m3u8`;
+
+  console.log('HLS : ', Hls)
+  useEffect(() => {
+    let hls: any;
+
+    if (videoRef.current) {
+      const video = videoRef.current;
+
+      if (Hls.isSupported()) {
+        // This will run in all other modern browsers
+        hls = new Hls();
+        hls.loadSource(src);
+        hls.attachMedia(video);
+      } else {
+        console.error("This is a legacy browser that doesn't support MSE");
+      }
+    }
+    return () => {
+      if (hls) {
+        hls.destroy();
+      }
+    };
+
+  }, [videoRef])
+
   return (
 
-
-    <BackgroundImage
-      // Tag='section'
-      {...gifBackground1}
-      preserveStackingContext
-      className="heroBanner"
-    >
-      <Banner
-        title={sanityBanner_1.big_text}
-        content={sanityBanner_1.small_text}
-        linkTo={sanityBanner_1.button_link}
-        linkText={sanityBanner_1.button_text}
+    <>
+      <video
+        ref={videoRef}
+        controls
+        style={{ width: '100%', height: 'auto', position: 'absolute', top: '0', left: '0' }}
       />
-    </BackgroundImage>
+      {/* <SanityMuxPlayer
+        assetDocument={muxBg1}
+        autoload={true}
+        showControls={true}
+        autoplay={true}
+      /> */}
+      {/* <video
+        controls
+        width="800"
+        height="600"
+      >
+        <source
+          src={`https://stream.mux.com/ZJ02gpReTJCRcEP2G3Uebb3MeOgLOu3LCkmuJNbatZ8w.m3u8`}
+          type="video/mp4"
+        />
+
+      </video> */}
+    </>
+
+    // <BackgroundImage
+    //   // Tag='section'
+    //   {...gifBackground1}
+    //   preserveStackingContext
+    //   className="heroBanner"
+    // >
+    //   <Banner
+    //     title={sanityBanner_1.big_text}
+    //     content={sanityBanner_1.small_text}
+    //     linkTo={sanityBanner_1.button_link}
+    //     linkText={sanityBanner_1.button_text}
+    //   />
+    // </BackgroundImage>
 
 
   );

@@ -14,5 +14,10 @@ export default {
       name: "bg_video",
       type: "image",
     },
+    {
+      title: "Mux Background Video",
+      name: "mux_bg_video",
+      type: "mux.video",
+    },
   ],
 };

@@ -32,6 +32,7 @@
     "sanity-plugin-dashboard-widget-gatsby": "^1.0.9",
     "sanity-plugin-dashboard-widget-netlify": "^1.0.1",
     "sanity-plugin-markdown": "^2.0.2",
+    "sanity-plugin-mux-input": "^1.1.0",
     "styled-components": "^5.3.1"
   }
 }
