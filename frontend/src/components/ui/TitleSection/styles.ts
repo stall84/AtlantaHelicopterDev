@@ -20,7 +20,8 @@ export const Title = styled.h2<StyledProps>`
 `;
 
 export const SubTitle = styled.h4<StyledProps>`
-  font-family: 'GoodTimes', monospace;
+  font-family: 'OswaldSemiBold', monospace;
+  /* font-family: 'GoodTimes', monospace; */
   /* text-shadow: 1px 1px 1px black; */
   ${tw`text-xs text-lightRed w-full text-left`};
   ${({ center }) => center && tw`text-center`};

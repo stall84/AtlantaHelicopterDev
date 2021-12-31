@@ -7,5 +7,6 @@ export const Section = styled.section`
 `;
 
 export const Paragraph = styled.p`
+    font-family: 'OswaldSemiBold', monospace;
     ${tw`p-2 my-2 text-center`}
 `;

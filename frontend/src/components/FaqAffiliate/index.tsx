@@ -28,6 +28,8 @@ const FaqAffiliate: React.FC = () => {
                     <TitleSection title='General Terms of Service' center none />
                     {legalTerms.termsLegal}
                 </Styled.Paragraph>
+                <hr />
+                <br />
                 <Styled.Paragraph>
                     <TitleSection title='General Cancellation Policy' center none />
                     {cancellationPolicy.cancellationPolicy}

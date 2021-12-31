@@ -39,6 +39,7 @@ export const TextDiv = styled.div`
 `;
 
 export const Content = styled.p`
+  font-family: 'Oswald', monospace;
   ${tw`sm:m-2 p-1 sm:p-3 text-black text-center text-sm sm:text-lg`};
 `;
 

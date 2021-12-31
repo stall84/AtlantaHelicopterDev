@@ -43,6 +43,7 @@ export const Title = styled.h3`
 `;
 
 export const Content = styled.p`
+  font-family: 'Cabin', monospace;
   ${tw`mt-1 text-ellipsis sm:text-lg text-black text-center`};
 `;
 

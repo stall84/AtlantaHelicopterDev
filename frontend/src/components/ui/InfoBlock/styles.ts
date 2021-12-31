@@ -38,6 +38,7 @@ export const Title = styled.h3`
 `;
 
 export const Content = styled.p`
+  font-family: 'Cabin', monospace;
   ${tw`mt-1 text-black`};
 `;
 
