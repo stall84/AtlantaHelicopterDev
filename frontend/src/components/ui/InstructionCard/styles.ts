@@ -35,7 +35,7 @@ export const Title = styled.h3`
 `;
 
 export const TextDiv = styled.div`
-  ${tw`flex flex-col m-1 border rounded border-black p-1 overflow-auto`}
+  ${tw`flex flex-col m-1 border rounded p-1 overflow-auto`}
 `;
 
 export const Content = styled.p`
