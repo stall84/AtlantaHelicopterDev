@@ -13,9 +13,12 @@ interface ScrolledProps {
 export const MainNav = styled.nav<StyledProps>`
   ${tw`lg:flex flex-col lg:flex-row pl-1 pb-1 sm:p-0 lg:w-auto w-full order-last lg:order-none hidden bg-white sm:bg-transparent`};
   ${({ open }) => open && tw`flex mt-3`};
-  /* @media screen and (max-width: 425px) {     // Experimental gradient nav-menu for mobile screens
-    background: linear-gradient(90deg, gray 15%, white 30%, red);
-  } */
+    @media screen and (max-width: 425px) {     // Experimental gradient nav-menu for mobile screens
+      /* background: linear-gradient(90deg, gray 15%, white 30%, red); */
+      background-color: #FFFFFF;
+      background-image: linear-gradient(100deg, #e7ebed 0%, #ffffff 50%, rgb(213,37,37) 100%);
+      filter: brightness(0.9);
+    }
 `;
 
 export const MainNavItem = motion(styled(Link)<ScrolledProps>`

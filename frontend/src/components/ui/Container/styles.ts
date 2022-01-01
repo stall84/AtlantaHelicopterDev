@@ -6,6 +6,6 @@ export interface StyledProps {
 }
 
 export const Container = styled.div<StyledProps>`
-  ${tw`flex flex-wrap justify-center max-w-screen-2xl w-full sm:mx-auto p-2`};
+  ${tw`flex flex-wrap justify-center max-w-screen-2xl w-full sm:mx-auto`};
   ${({ section }) => section && tw`flex-col items-center mx-auto mt-12 sm:mt-24 sm:py-12`};
 `;
