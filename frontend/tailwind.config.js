@@ -20,7 +20,7 @@ module.exports = {
         responsiveCard: '400px',
         mobile: '4rem',
         initial: '120px',
-        scrolled: '80px',
+        scrolled: '90px',
         mobHeader: '6.5rem',
         mainHeader: '8.85rem',
         layoutTop: '130px'

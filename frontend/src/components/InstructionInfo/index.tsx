@@ -88,8 +88,6 @@ const InstructionInfo: React.FC = () => {
     `)
 
     const flightInstructionList: SanityFlightInstruction[] = allSanityFlightInstruction.edges;
-    console.log('single private_cert : ', privateCertificate)
-    console.log('flightInstructionList: ', flightInstructionList)
 
     return (
         <Container section>
