@@ -3,11 +3,11 @@ import tw from 'tailwind.macro';
 import { Container } from 'components/ui/Container/styles';
 
 interface ScrollStyles {
-  scrolled?: boolean;
+  scrolled: boolean;
 }
 
 export const Header = styled.header<ScrollStyles>`
-  ${tw`sticky top-0 w-full h-initial z-50 bg-transparent `};
+  ${tw`fixed w-full h-initial z-50 bg-transparent `};
   ${({ scrolled }) => scrolled && tw`sm:bg-red sm:h-scrolled`};
   transition: all 0.5s linear;
   @media screen and (max-width: 425px) {

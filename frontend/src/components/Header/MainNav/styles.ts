@@ -7,7 +7,7 @@ interface StyledProps {
   open: boolean;
 }
 interface ScrolledProps {
-  scrolled?: boolean;
+  scrolled: boolean;
 }
 
 export const MainNav = styled.nav<StyledProps>`
@@ -18,9 +18,8 @@ export const MainNav = styled.nav<StyledProps>`
   } */
 `;
 
-export const MainNavItem = motion.custom(styled(Link)<ScrolledProps>`
-  ${tw`relative text-black text-sm sm:text-xl border-b border-white md:border-transparent hover:text-red ml-0 sm:ml-8 mt-3 sm:mt-0`};
-  ${({ scrolled }) => scrolled && tw`hover:text-white`};
+export const MainNavItem = motion(styled(Link)<ScrolledProps>`
+  ${tw`relative text-black text-sm sm:text-xl hover:text-white border-b border-white md:border-transparent ml-0 sm:ml-8 mt-3 sm:mt-0`};
   font-family: "GoodTimes", monospace;
   width: max-content;
 

@@ -50,7 +50,7 @@ const MainNav: React.FC<MainNavProps> = ({ scrolled }) => {
             to={item.slug}
             activeClassName="active"
             whileTap={{ scale: 0.9 }}
-            scrolled={scrolled}
+          // scrolled={scrolled}
           >
             {item.title}
           </Styled.MainNavItem>
